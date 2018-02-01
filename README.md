@@ -1,5 +1,5 @@
 # WDI-GROUP-PROJECT
 
-Krisztina
+Krisztina the artist coder
 Will
 Omar
