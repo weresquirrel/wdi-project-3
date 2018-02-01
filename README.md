@@ -1,4 +1,5 @@
 # WDI-GROUP-PROJECT
 
 Krisz
-William
+Will
+Omar
