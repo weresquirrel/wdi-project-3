@@ -1,4 +1,4 @@
 # WDI-GROUP-PROJECT
 
-Krisztina
-Will
+Krisz
+William
