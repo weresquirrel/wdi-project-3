@@ -1,1 +1,3 @@
 # WDI-GROUP-PROJECT
+
+Krisztina
