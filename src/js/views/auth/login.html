@@ -1,0 +1,26 @@
+<section>
+  <div>
+    <div>
+      <form ng-submit="vm.submit()">
+        <div>
+          <label for="email">Email</label>
+          <p>
+            <input type="text" name="email" id="email" ng-model="vm.credentials.email">
+          </p>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <p>
+            <input type="password" name="password" id="password" ng-model="vm.credentials.password">
+          </p>
+        </div>
+
+        <div>
+          <p>
+            <input type="submit" value="Login">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
