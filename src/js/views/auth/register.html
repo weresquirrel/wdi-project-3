@@ -1,0 +1,55 @@
+<section>
+  <div>
+    <div>
+      <form ng-submit="vm.submit()">
+        <div>
+          <label for="firstName">First name</label>
+          <p>
+            <input type="text" name="firstName" id="firstName" ng-model="vm.user.firstName">
+          </p>
+        </div>
+        <div>
+          <label for="lastName">Last name</label>
+          <p>
+            <input type="text" name="lastName" id="lastName" ng-model="vm.user.lastName">
+          </p>
+        </div>
+        <div>
+          <label for="username">Username</label>
+          <p>
+            <input type="text" name="username" id="username" ng-model="vm.user.username">
+          </p>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <p>
+            <input type="text" name="email" id="email" ng-model="vm.user.email">
+          </p>
+        </div>
+        <div>
+          <label for="profilePic">Profile picture</label>
+          <p>
+            <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
+          </p>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <p>
+            <input type="password" name="password" id="password" ng-model="vm.user.password">
+          </p>
+        </div>
+        <div>
+          <label for="passwordConfirmation">Password Confirmation</label>
+          <p>
+            <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation">
+          </p>
+        </div>
+        <div>
+          <p>
+            <input type="submit" value="Register">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
