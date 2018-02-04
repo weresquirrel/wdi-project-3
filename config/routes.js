@@ -8,5 +8,8 @@ router.route('/login')
 router.route('/register')
   .post(auth.register);
 
-
+router.route('/users/:id')
+  .get(auth.show)
+  .put(auth.update);
+  
 module.exports = router;
