@@ -9,5 +9,4 @@ router.route('/register')
   .post(auth.register);
 
 
-
 module.exports = router;

@@ -2,13 +2,13 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 
-function register(req, res) {
+function registerRoute(req, res) {
   User
     .create(req.body)
     .then(() => res.json({ message: 'Registration successful'}));
 }
 
-function login(req, res) {
+function loginRoute(req, res) {
   User
     .findOne({ email: req.body.email })
     .then((user) => {
@@ -20,7 +20,36 @@ function login(req, res) {
     });
 }
 
+function updateRoute(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+
+      Object.assign(user, req.body);
+      return user.save();
+    })
+    .then((user) => res.json(user))
+    .catch(next);
+}
+
+function showRoute(req, res, next) {
+  User
+    .findById(req.params.id)
+    .populate('createdBy comments.createdBy')
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+
+      res.json(user);
+    })
+    .catch(next);
+}
+
 module.exports = {
-  register,
-  login
+  register: registerRoute,
+  login: loginRoute,
+  update: updateRoute,
+  show: showRoute
 };
