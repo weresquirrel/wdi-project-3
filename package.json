@@ -4,7 +4,11 @@
   "description": "wdi group project",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "node_modules/.bin/_mocha",
+=======
+    "start": "node index.js",
+>>>>>>> development
     "postinstall": "bower install && gulp deploy"
   },
   "author": "Krisztina Sztupakne Molnar, William Graham, Omar Portillo",
