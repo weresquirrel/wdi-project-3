@@ -17,18 +17,10 @@
   "dependencies": {
     "angular": "^1.4.8",
     "satellizer": "^0.15.5",
-<<<<<<< HEAD
-    "angular-ui-router": "^1.0.14"
-=======
     "angular-ui-router": "^1.0.14",
     "angular-resource": "^1.6.9"
   },
   "resolutions": {
-<<<<<<< HEAD
-    "angular": ">= 1.2.0"
-=======
     "angular": "^1.4.8"
->>>>>>> 6441816364490a39d7d712445342143c3464d4b7
->>>>>>> development
   }
 }
