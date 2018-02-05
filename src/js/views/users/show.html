@@ -11,17 +11,17 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>{{ vm.user.username }}</strong>
+            <strong>{{ vm.user.firstName }}</strong>
             <br>
             My BIO: {{ vm.user.bio }}
           </p>
         </div>
       </div>
       <div>
-        <a class="button">
+        <a class="button" ui-sref="editUser ({ id: vm.user.id })">
           Edit my Profile
         </a>
-        <a class="button">
+        <a class="button" ui-sref="createEvent">
           Create a new event
         </a>
       </div>
