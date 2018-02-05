@@ -1,12 +1,21 @@
 angular
   .module('bringItApp')
   .factory('Event', Event)
-  .factory('EventComment', EventComment);
+  .factory('EventComment', EventComment)
+  .factory('EventItem', EventItem);
 
 Event.$inject = ['$resource', 'API'];
 function Event($resource, API){
   return $resource(`${API}/events/:id`, { id: '@_id'}, {
-    'update': { method: 'PUT' }
+    'update': { method: 'PUT' },
+    'addItem': { method: 'POST' }
+  });
+}
+
+EventItem.$inject = ['$resource'];
+function EventItem($resource) {
+  return new $resource('/api/events/:id/items/:itemId', { itemId: '@id' }, {
+    update: { method: 'PUT' }
   });
 }
 

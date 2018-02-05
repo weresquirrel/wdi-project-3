@@ -2,12 +2,30 @@
 <div class="container">
   <div class="columns">
     <div class="column column-is-one-quarter">
-      <figure class="image is-square">
+      <figure class="image is-128x128">
         <img src="https://bulma.io/images/placeholders/128x128.png">
       </figure>
       <h3>{{ vm.event.eventName }}</h3>
       <p>{{ vm.event.description }}</p>
       <p>{{ vm.event.date }}</p>
+
+      <div>
+        <h3>Items</h3>
+        <p ng-if="!vm.event.items.length">0 items</p>
+
+        <ul>
+          <li ng-repeat="item in vm.event.items track by $index">
+            {{ item.itemName }} {{ item.amount }} {{ item.bringer }}
+          </li>
+        </ul>
+
+        <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
+          <label>Add item</label>
+          <input type="text" name="item" value="item" ng-model="vm.newItem.text">
+          <button>+</button>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>
