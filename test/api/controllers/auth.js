@@ -58,7 +58,7 @@ describe('Authentication Controller Tests', () => {
     });
   });
 
-// LOGIN ROUTE
+  // LOGIN ROUTE
   describe('POST /api/login', () => {
     beforeEach(done => {
       api
