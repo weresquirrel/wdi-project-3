@@ -2,18 +2,12 @@
 <section>
   <div>
     <div>
-      <form ng-submit="vm.submit()">
+      <form ng-submit="vm.update()">
         <div class="columns">
           <div class="column column is-one-quarter">
             <figure class="image is-square">
               <img src="https://bulma.io/images/placeholders/128x128.png">
             </figure>
-            <div>
-              <label for="profilePic">Profile picture</label>
-              <p>
-                <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
-              </p>
-            </div>
           </div>
           <div class="column">
                 <div>
@@ -26,6 +20,12 @@
                   <label for="lastName">Last name</label>
                   <p>
                     <input type="text" name="lastName" id="lastName" ng-model="vm.user.lastName">
+                  </p>
+                </div>
+                <div>
+                  <label for="profilePic">Profile picture</label>
+                  <p>
+                    <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
                   </p>
                 </div>
                 <br>
