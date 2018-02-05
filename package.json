@@ -4,7 +4,7 @@
   "description": "wdi group project",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/_mocha",
+    "test": "nyc --reporter=html --reporter=text mocha --exit",
     "start": "node index.js",
     "postinstall": "bower install && gulp deploy"
   },

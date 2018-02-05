@@ -1,0 +1,41 @@
+<h2>Create Event</h2>
+<section>
+  <form ng-submit="vm.createEvent()">
+    <div class="columns">
+      <div class="column column is-one-quarter">
+        <figure class="image is-square">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+        </figure>
+      </div>
+      <div class="column">
+        <div>
+          <label for="eventName">Event name</label>
+          <p>
+            <input type="text" name="eventName" id="eventName" ng-model="vm.event.eventName">
+          </p>
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <textarea name="description" id="description" ng-model="vm.event.description" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="image">Profile picture</label>
+          <p>
+            <input type="text" name="image" id="image" ng-model="vm.event.image">
+          </p>
+        </div>
+        <div>
+          <label for="date">Date and time</label>
+          <p>
+            <input type="date" name="date" id="date" ng-model="vm.event.date">
+          </p>
+        </div>
+        <div>
+          <p>
+            <input type="submit" value="Update">
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
