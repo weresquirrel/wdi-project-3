@@ -23,6 +23,7 @@ const eventSchema = new mongoose.Schema({
   decsription: { type: String },
   date: { type: Date },
   location: { type: String, required: true },
+  image: String,
   eventKey: {},
   guests: [],
   items: [ itemSchema ],
