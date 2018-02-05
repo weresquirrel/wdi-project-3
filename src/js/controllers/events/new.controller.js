@@ -13,7 +13,8 @@ function NewEventCtrl(Event, $state) {
       .save(vm.event)
       .$promise
       .then((res) => {
-        $state.go('eventShow', {id: res.data.eventId});
+        console.log(res.id);
+        $state.go('showEvent', {id: res.id});
       });
   }
 }
