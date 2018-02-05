@@ -88,4 +88,83 @@ describe('Events Controller Tests', () => {
 
   });
 
+  // UPDATE ROUTE
+  describe('PUT /api/events/:id', () => {
+    let testEvent = null;
+
+    beforeEach(done => {
+      Event.create({
+        eventName: 'Picnic',
+        decsription: 'Let\'s have fun',
+        date: '2018 Jan 31 14:30',
+        location: 'my back-garden'
+      })
+        .then(eventData => {
+          testEvent = eventData;
+          done();
+        })
+        .catch(done);
+    });
+
+    it('should return a 200 response', done => {
+      api
+        .put(`/api/events/${testEvent.id}`)
+        .set('Accept', 'application/json')
+        .send({
+          eventName: 'Picnic',
+          decsription: 'Let\'s have fun',
+          date: '2018 Jan 31 14:30',
+          location: 'Victoria Park'
+        })
+        .expect(200, done);
+    });
+
+    it('should return updated event data in response body', done => {
+      api
+        .put(`/api/events/${testEvent.id}`)
+        .set('Accept', 'application/json')
+        .send({
+          eventName: 'Picnic',
+          decsription: 'Let\'s have fun',
+          date: '2018 Jan 31 14:30',
+          location: 'Victoria Park'
+        })
+        .end((err, res) => {
+          expect(res.body)
+            .to.be.an('object')
+            .and.to.have.property('location', 'Victoria Park');
+
+          done();
+        });
+    });
+  });
+
+
+  // DELETE ROUTE
+  describe('DELETE /api/events/:id', () => {
+
+    let testEvent = null;
+
+    beforeEach(done => {
+      Event.create({
+        eventName: 'Picnic',
+        decsription: 'Let\'s have fun',
+        date: '2018 Jan 31 14:30',
+        location: 'my back-garden'
+      })
+        .then(eventData => {
+          testEvent = eventData;
+          done();
+        })
+        .catch(done);
+    });
+
+    it('should return a 404 response', done => {
+      api
+        .delete(`/api/shoes/${testEvent.id}`)
+        .set('Accept', 'application/json')
+        .expect(404, done);
+    });
+  });
+
 });
