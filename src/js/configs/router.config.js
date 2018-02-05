@@ -31,7 +31,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/users/edit.html',
       controller: 'EditUserCtrl as vm'
     })
-    .state('newEvent', {
+    .state('createEvent', {
       url: '/events',
       templateUrl: 'js/views/events/new.html',
       controller: 'NewEventCtrl as vm'

@@ -6,14 +6,14 @@ NewEventCtrl.$inject = ['Event', '$state'];
 function NewEventCtrl(Event, $state) {
   const vm = this;
   vm.event = {};
-  vm.create = newEvent;
+  vm.createEvent = newEvent;
 
   function newEvent() {
     Event
       .save(vm.event)
       .$promise
-      .then(() => {
-        $state.go('eventShow');
+      .then((res) => {
+        $state.go('eventShow', {id: res.data.eventId});
       });
   }
 }
