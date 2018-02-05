@@ -16,7 +16,7 @@ function loginRoute(req, res) {
 
       const payload = { userId: user.id };
       const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
-      return res.json({ token, message: `Welcome back ${user.username}` });
+      return res.json({ token, message: `Welcome back ${user.username}`, userId: user.id });
     });
 }
 

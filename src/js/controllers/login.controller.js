@@ -9,7 +9,8 @@ function LoginCtrl($auth, $state) {
 
   function submit() {
     $auth.login(vm.credentials)
-      .then(() => $state.go('home'));
+    //passing user ID to front end.
+      .then((res) => $state.go('userShow', {id: res.data.userId}));
   }
 
   vm.submit = submit;
