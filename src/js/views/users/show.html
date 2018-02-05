@@ -1,2 +1,38 @@
 <h2>SHOW</h2>
-<p>{{ vm.user }}</p>
+<div class="container">
+
+  <div class="columns">
+    <div class="column column is-one-quarter">
+      <figure class="image is-square">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+    </div>
+    <div class="column">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{ vm.user.username }}</strong>
+            <br>
+            My BIO: {{ vm.user.bio }}
+          </p>
+        </div>
+      </div>
+      <div>
+        <a class="button">
+          Edit my Profile
+        </a>
+        <a class="button">
+          Create a new event
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class= "columns">
+    <div class="column">
+      <strong>Parties I am hosting</strong>
+    </div>
+    <div class="column">
+      <strong>Parties I am attending</strong>
+    </div>
+  </div>
+</div>
