@@ -1,0 +1,49 @@
+<h2>EDIT</h2>
+<section>
+  <div>
+    <div>
+      <form ng-submit="vm.submit()">
+        <div class="columns">
+          <div class="column column is-one-quarter">
+            <figure class="image is-square">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+            <div>
+              <label for="profilePic">Profile picture</label>
+              <p>
+                <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
+              </p>
+            </div>
+          </div>
+          <div class="column">
+                <div>
+                  <label for="firstName">First name</label>
+                  <p>
+                    <input type="text" name="firstName" id="firstName" ng-model="vm.user.firstName">
+                  </p>
+                </div>
+                <div>
+                  <label for="lastName">Last name</label>
+                  <p>
+                    <input type="text" name="lastName" id="lastName" ng-model="vm.user.lastName">
+                  </p>
+                </div>
+                <br>
+                <div>
+                  <label for="bio">Bio</label>
+                  <p>
+                    <textarea class="textarea" row="6" name="bio" id="bio" ng-model="vm.user.bio">
+                    </textarea>
+                    </p>
+                </div>
+                <div>
+                  <p>
+                    <input type="submit" value="Update">
+                  </p>
+                </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
