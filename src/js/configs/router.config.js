@@ -30,6 +30,21 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/users/:id',
       templateUrl: 'js/views/users/edit.html',
       controller: 'EditUserCtrl as vm'
+    })
+    .state('newEvent', {
+      url: '/events',
+      templateUrl: 'js/views/events/new.html',
+      controller: 'NewEventCtrl as vm'
+    })
+    .state('editEvent', {
+      url: '/events/:id',
+      templateUrl: 'js/views/events/edit.html',
+      controller: 'NewEventCtrl as vm'
+    })
+    .state('showEvent', {
+      url: '/events/:id',
+      templateUrl: 'js/views/events/show.html',
+      controller: 'EventsShowCtrl as vm'
     });
   $urlRouterProvider.otherwise('/');
 }

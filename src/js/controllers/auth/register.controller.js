@@ -8,7 +8,6 @@ function RegisterCtrl($auth, $state) {
   vm.user = {};
 
   function submit() {
-    console.log('in submit');
     $auth.signup(vm.user)
       .then(() => $state.go('login'));
   }
