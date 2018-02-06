@@ -10,6 +10,8 @@
       <p>{{ vm.event.date }}</p>
       <p>event key: {{ vm.event.eventKey }}</p>
 
+      <button ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
+
       <div>
         <h3>Items</h3>
         <p ng-if="!vm.event.items.length">0 items</p>
