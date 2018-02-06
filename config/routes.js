@@ -39,5 +39,8 @@ router.route('/events/:id/items/:itemId')
   .delete(secureRoute, event.deleteItem)
   .put(secureRoute, event.assignBringer);
 
+router.route('/events/search/:eventKey')
+  .get(secureRoute, event.search);
+
 
 module.exports = router;

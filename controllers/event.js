@@ -1,3 +1,4 @@
+
 const Event = require('../models/event');
 
 // function indexRoute(req, res, next) {
@@ -168,6 +169,19 @@ function addGuestRoute(req, res, next) {
     .catch(next);
 }
 
+function searchRoute(req, res, next) {
+
+  Event
+    .findOne({ eventKey: req.params.eventKey })
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+
+      return res.json(event);
+    })
+    .catch(next);
+}
+
 module.exports = {
   // index: indexRoute,
   create: createRoute,
@@ -179,5 +193,6 @@ module.exports = {
   addItem: addItemRoute,
   deleteItem: deleteItemRoute,
   assignBringer: assignBringer,
-  addGuest: addGuestRoute
+  addGuest: addGuestRoute,
+  search: searchRoute
 };
