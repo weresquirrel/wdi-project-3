@@ -28,36 +28,10 @@ function loginRoute(req, res, next) {
     .catch(next);
 }
 
-function updateRoute(req, res, next) {
-  User
-    .findById(req.params.id)
-    .exec()
-    .then((user) => {
-      if(!user) return res.notFound();
-
-      Object.assign(user, req.body);
-      return user.save();
-    })
-    .then((user) => res.json(user))
-    .catch(next);
-}
-
-function showRoute(req, res, next) {
-  User
-    .findById(req.params.id)
-    .populate('createdBy comments.createdBy')
-    .exec()
-    .then((user) => {
-      if(!user) return res.notFound();
-
-      res.json(user);
-    })
-    .catch(next);
-}
 
 module.exports = {
   register: registerRoute,
-  login: loginRoute,
-  update: updateRoute,
-  show: showRoute
+  login: loginRoute
+  // update: updateRoute
+  // show: showRoute
 };
