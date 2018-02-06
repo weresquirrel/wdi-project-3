@@ -21,7 +21,7 @@
 
         <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
           <label>Add item</label>
-          <input type="text" name="item" value="item" ng-model="vm.newItem.text">
+          <input type="text" name="itemName" value="item" ng-model="vm.newItem.itemName">
           <button>+</button>
         </form>
       </div>

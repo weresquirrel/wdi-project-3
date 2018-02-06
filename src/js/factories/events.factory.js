@@ -7,15 +7,15 @@ angular
 Event.$inject = ['$resource', 'API'];
 function Event($resource, API){
   return $resource(`${API}/events/:id`, { id: '@_id'}, {
-    'update': { method: 'PUT' },
-    'addItem': { method: 'POST' }
+    'update': { method: 'PUT' }
   });
 }
 
-EventItem.$inject = ['$resource'];
-function EventItem($resource) {
-  return new $resource('/api/events/:id/items/:itemId', { itemId: '@id' }, {
-    update: { method: 'PUT' }
+
+
+EventItem.$inject = ['$resource', 'API'];
+function EventItem($resource, API) {
+  return new $resource(`${API}/events/:eventId/items`, { eventId: '@id' }, {
   });
 }
 
