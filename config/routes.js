@@ -23,6 +23,9 @@ router.route('/events/:id')
   .get(secureRoute, event.update)
   .delete(secureRoute, event.delete);
 
+router.route('/events/:id/join')
+  .put(secureRoute, event.addGuest);
+
 router.route('/events/:id/comments')
   .post(secureRoute, event.addComment);
 

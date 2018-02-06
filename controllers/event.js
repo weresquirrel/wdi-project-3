@@ -151,6 +151,23 @@ function deleteItemRoute(req, res, next) {
     .catch(next);
 }
 
+function addGuestRoute(req, res, next) {
+
+  Event
+    .findById(req.params.id)
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+
+      const guest = req.user;
+      event.guests.push(guest);
+
+      return event.save()
+        .then(() => res.json(guest));
+    })
+    .catch(next);
+}
+
 module.exports = {
   // index: indexRoute,
   create: createRoute,
@@ -161,5 +178,6 @@ module.exports = {
   deleteComment: deleteCommentRoute,
   addItem: addItemRoute,
   deleteItem: deleteItemRoute,
-  assignBringer: assignBringer
+  assignBringer: assignBringer,
+  addGuest: addGuestRoute
 };
