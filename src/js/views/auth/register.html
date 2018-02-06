@@ -2,51 +2,99 @@
   <div>
     <div>
       <form ng-submit="vm.submit()">
-        <div>
-          <label for="firstName">First name</label>
-          <p>
-            <input type="text" name="firstName" id="firstName" ng-model="vm.user.firstName">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="firstName">First Name</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <input class="input" type="text" name="firstName" id="firstName" ng-model="vm.user.firstName"  placeholder="First Name">
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="lastName">Last name</label>
-          <p>
-            <input type="text" name="lastName" id="lastName" ng-model="vm.user.lastName">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="lastName">Last Name</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="First Name">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="username">Username</label>
-          <p>
-            <input type="text" name="username" id="username" ng-model="vm.user.username">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="username">Username</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="username" id="username" ng-model="vm.user.username" placeholder="username">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <p>
-            <input type="text" name="email" id="email" ng-model="vm.user.email">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="email">Email</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="email" name="email" id="email" ng-model="vm.user.email" placeholder="Email">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="profilePic">Profile picture</label>
-          <p>
-            <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="profilePic">Profile picture</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="password">Password</label>
-          <p>
-            <input type="password" name="password" id="password" ng-model="vm.user.password">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="password">Password</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="password" name="password" id="password" ng-model="vm.user.password" placeholder="password">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="passwordConfirmation">Password Confirmation</label>
-          <p>
-            <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="passwordConfirmation">Confirm Password</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation" placeholder="confirm password">
+              </div>
+            </div>
+          </div>
         </div>
+
         <div>
           <p>
-            <input type="submit" value="Register">
+            <button class="button" type="submit" value="Register">Register</button>
           </p>
         </div>
       </form>

@@ -10,24 +10,45 @@
   <!-- endinject -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500,700,900&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body ng-controller="MainCtrl as main">
-  <nav>
-    <a class="nav-item" ui-sref="home">
-      bringIt
-    </a>
-    <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
-      Login
-    </a>
-    <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">
-      Register
-    </a>
-    <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">
-      Logout
-    </a>
+  <nav ng-hide="main.hideNav" class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <h1>BringIt!</h1>
+      </a>
+      <div class="navbar-burger burger nav-toogle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen"  data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navbarExampleTransparentExample" class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen }">
+      <div class="navbar-start">
+        <a class="nav-item" ui-sref="home">
+          HOME
+        </a>
+        <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+          LOGIN
+        </a>
+        <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+          REGISTER
+        </a>
+        <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+          LOGOUT
+        </a>
+      </div>
+      <div class="navbar-end">
+      </div>
+    </div>
   </nav>
-  <h1>WDI Group Project!</h1>
-  <main ui-view>
+
+  <main class="container" ui-view>
+
 
   </main>
 </body>

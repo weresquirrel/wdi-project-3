@@ -1,1 +1,11 @@
-<h2>Home sweet home</h2>
+<div class="homePage">
+<h2>BRING IT!</h2>
+<div>
+  <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+    LOGIN
+  </a>
+  <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+    REGISTER
+  </a>
+</div>
+</div>

@@ -1,0 +1,40 @@
+h1, h2 {
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+p {
+  font-family: 'Yantramanav', sans-serif;
+}
+
+.navbar {
+    a {
+      padding: 15px;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &.navbar-start a{
+      padding: 30px;
+    }
+}
+
+.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    h2 {
+      font-size: 60px;
+    }
+}
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myPartiesDisplay {
+    display: flex;
+  }

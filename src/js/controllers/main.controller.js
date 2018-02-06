@@ -9,6 +9,13 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
   vm.isAuthenticated = $auth.isAuthenticated;
 
   $transitions.onSuccess({}, (transition) => {
+
+    if ($state.current.url === '/') {
+      vm.hideNav = true;
+    } else {
+      vm.hideNav = false;
+    }
+
     // closes the mobile menu each time the state changes
     vm.menuIsOpen = false;
     // attaches the state name to the main controller to be used as a class name on the body
