@@ -1,24 +1,35 @@
-<section>
+<section class="loginPage">
   <div>
     <div>
       <form ng-submit="vm.submit()">
-        <div>
-          <label for="email">Email</label>
-          <p>
-            <input type="text" name="email" id="email" ng-model="vm.credentials.email">
-          </p>
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <p>
-            <input type="password" name="password" id="password" ng-model="vm.credentials.password">
-          </p>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="email">Email</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="email" id="email" ng-model="vm.credentials.email" placeholder="@">
+              </div>
+            </div>
+          </div>
         </div>
 
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Password</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="password" name="password" id="password" ng-model="vm.credentials.password" placeholder="Password">
+              </div>
+            </div>
+          </div>
+        </div>
         <div>
-          <p>
-            <input type="submit" value="Login">
-          </p>
+            <button class="button" type="submit" value="Login">LogIn</button>
         </div>
       </form>
     </div>

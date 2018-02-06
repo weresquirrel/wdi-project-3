@@ -11,3 +11,19 @@ p {
       padding: 15px;
     }
 }
+
+.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    h2 {
+      font-size: 60px;
+    }
+}
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
