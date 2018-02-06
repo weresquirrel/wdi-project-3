@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const auth    = require('../controllers/auth');
 const event   = require('../controllers/event');
+const users   = require('../controllers/users');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/login')
@@ -11,28 +12,28 @@ router.route('/register')
   .post(auth.register);
 
 router.route('/users/:id')
-  .get(auth.show)
-  .put(auth.update);
+  // .get(auth.show)
+  .put(secureRoute, users.update)
+  .get(secureRoute, users.show);
 
 router.route('/events')
-  .post(event.create);
+  .post(secureRoute, event.create);
 
 router.route('/events/:id')
-  .get(event.show)
-  .put(event.update)
-  .delete(event.delete);
+  .get(secureRoute, event.update)
+  .delete(secureRoute, event.delete);
 
 router.route('/events/:id/comments')
-  .post(event.addComment);
+  .post(secureRoute, event.addComment);
 
 router.route('/events/:id/comments/:commentId')
-  .delete(event.deleteComment);
+  .delete(secureRoute, event.deleteComment);
 
 router.route('/events/:id/items')
-  .post(event.addItem);
+  .post(secureRoute, event.addItem);
 
 router.route('/events/:id/items/:itemId')
-  .delete(event.deleteItem)
+  .delete(secureRoute, event.deleteItem)
   .put(secureRoute, event.assignBringer);
 
 
