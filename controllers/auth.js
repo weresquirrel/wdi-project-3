@@ -49,7 +49,6 @@ function showRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-
       res.json(user);
     })
     .catch(next);
