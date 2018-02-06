@@ -19,6 +19,20 @@
           </li>
         </ul>
 
+        <ul>
+          <li ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+            {{ item.itemName }} {{ item.amount }}
+            <button ng-click="vm.assignBringer(item)">I bing it</button>
+          </li>
+        </ul>
+        <ul>
+          <li ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
+            {{ item.itemName }} {{ item.amount }}
+            <h6> {{ item.bringer.firstName }} </h6>
+            <button>cancel</button>
+          </li>
+        </ul>
+
         <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
           <label>Add item</label>
           <input type="text" name="itemName" value="item" ng-model="vm.newItem.itemName">

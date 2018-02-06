@@ -2,8 +2,8 @@ angular
   .module('bringItApp')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['$state', '$sce', 'Event', 'EventComment', 'EventItem'];
-function EventsShowCtrl($state, $sce, Event, EventComment, EventItem) {
+EventsShowCtrl.$inject = ['$state', '$sce', 'Event', 'EventComment', 'EventItem', 'AssignItem'];
+function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem) {
   const vm = this;
 
   Event.get($state.params)
@@ -33,6 +33,18 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem) {
   }
 
   vm.addItem = addItem;
+
+  function assignBringer(item) {
+    AssignItem
+      .update({ eventId: vm.event.id , itemId: item.id})
+      .$promise
+      .then((response) => {
+        console.log(response);
+        item.bringer = response.bringer;
+      });
+  }
+
+  vm.assignBringer = assignBringer;
 
   function addComment() {
     EventComment

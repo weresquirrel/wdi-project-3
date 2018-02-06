@@ -21,7 +21,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Event
     .findById(req.params.id)
-    .populate('comments.createdBy')
+    .populate('comments.createdBy items.bringer')
     .exec()
     .then((event) => {
       if(!event) return res.notFound();
@@ -112,6 +112,24 @@ function addItemRoute(req, res, next) {
     .catch(next);
 }
 
+function assignBringer(req, res, next) {
+  Event
+    .findById(req.params.id)
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+
+      const item = event.items.id(req.params.itemId);
+      item.bringer = req.user;
+      return event.save();
+    })
+    .then((event) => {
+      const item = event.items.id(req.params.itemId);
+      res.json(item);
+    })
+    .catch(next);
+}
+
 function deleteItemRoute(req, res, next) {
   Event
     .findById(req.params.id)
@@ -137,5 +155,6 @@ module.exports = {
   addComment: addCommentRoute,
   deleteComment: deleteCommentRoute,
   addItem: addItemRoute,
-  deleteItem: deleteItemRoute
+  deleteItem: deleteItemRoute,
+  assignBringer: assignBringer
 };
