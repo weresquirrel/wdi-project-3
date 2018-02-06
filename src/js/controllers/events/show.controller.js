@@ -36,15 +36,25 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem
 
   function assignBringer(item) {
     AssignItem
-      .update({ eventId: vm.event.id , itemId: item.id})
+      .update({ eventId: vm.event.id , itemId: item.id}, { status: 'assign' })
       .$promise
       .then((response) => {
-        console.log(response);
         item.bringer = response.bringer;
       });
   }
 
   vm.assignBringer = assignBringer;
+
+  function  unassignBringer(item) {
+    AssignItem
+      .update({ eventId: vm.event.id , itemId: item.id}, { status: 'unassign' })
+      .$promise
+      .then((response) => {
+        item.bringer = response.bringer;
+      });
+  }
+
+  vm.unassignBringer = unassignBringer;
 
   function addComment() {
     EventComment

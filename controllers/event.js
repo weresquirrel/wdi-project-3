@@ -120,7 +120,12 @@ function assignBringer(req, res, next) {
       if(!event) return res.notFound();
 
       const item = event.items.id(req.params.itemId);
-      item.bringer = req.user;
+
+      if (req.body.status === 'assign') {
+        item.bringer = req.user;
+      } else {
+        item.bringer = null;
+      }
       return event.save();
     })
     .then((event) => {

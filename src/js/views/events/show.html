@@ -14,12 +14,6 @@
         <p ng-if="!vm.event.items.length">0 items</p>
 
         <ul>
-          <li ng-repeat="item in vm.event.items track by $index">
-            {{ item.itemName }} {{ item.amount }} {{ item.bringer }}
-          </li>
-        </ul>
-
-        <ul>
           <li ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
             {{ item.itemName }} {{ item.amount }}
             <button ng-click="vm.assignBringer(item)">I bing it</button>
@@ -29,7 +23,7 @@
           <li ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
             {{ item.itemName }} {{ item.amount }}
             <h6> {{ item.bringer.firstName }} </h6>
-            <button>cancel</button>
+            <button ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">cancel</button>
           </li>
         </ul>
 
