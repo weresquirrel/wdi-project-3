@@ -10,6 +10,13 @@ p {
     a {
       padding: 15px;
     }
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &.navbar-start a{
+      padding: 30px;
+    }
 }
 
 .homePage {
@@ -27,3 +34,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+.myPartiesDisplay {
+    display: flex;
+  }
