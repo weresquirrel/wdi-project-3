@@ -20,11 +20,11 @@ commentSchema.set('toJSON', { virtuals: true });
 
 const eventSchema = new mongoose.Schema({
   eventName: { type: String, required: true },
-  decsription: { type: String },
+  description: { type: String },
   date: { type: Date },
   location: { type: String },
   image: String,
-  eventKey: {},
+  eventKey: Number,
   guests: [],
   items: [ itemSchema ],
   comments: [ commentSchema ],

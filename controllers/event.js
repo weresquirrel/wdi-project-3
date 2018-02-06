@@ -9,7 +9,7 @@ const Event = require('../models/event');
 // }
 
 function createRoute(req, res, next) {
-
+  req.body.eventKey = Math.floor(Math.random() * 900000);
   req.body.createdBy = req.user;
 
   Event
