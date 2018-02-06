@@ -15,7 +15,7 @@ function Event($resource, API){
 
 Event.$inject = ['$resource', 'API'];
 function EventGuest($resource, API){
-  return $resource(`${API}/events/:eventId/join`, { eventId: '@eventId'}, {
+  return $resource(`${API}/events/:id/join`, { id: '@id'}, {
     'update': { method: 'PUT' }
   });
 }

@@ -69,8 +69,9 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem
   vm.addComment = addComment;
 
   function addGuest() {
+    console.log('addGuest function');
     EventGuest
-      .update({ eventId: vm.eventId })
+      .update({ id: vm.event.id })
       .$promise
       .then((guest) => {
         vm.event.guests.push(guest);
