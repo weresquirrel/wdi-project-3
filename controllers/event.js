@@ -1,3 +1,4 @@
+
 const Event = require('../models/event');
 
 // function indexRoute(req, res, next) {
@@ -151,6 +152,36 @@ function deleteItemRoute(req, res, next) {
     .catch(next);
 }
 
+function addGuestRoute(req, res, next) {
+
+  Event
+    .findById(req.params.id)
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+
+      const guest = req.user;
+      event.guests.push(guest);
+
+      return event.save()
+        .then(() => res.json(guest));
+    })
+    .catch(next);
+}
+
+function searchRoute(req, res, next) {
+
+  Event
+    .findOne({ eventKey: req.params.eventKey })
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+
+      return res.json(event);
+    })
+    .catch(next);
+}
+
 module.exports = {
   // index: indexRoute,
   create: createRoute,
@@ -161,5 +192,7 @@ module.exports = {
   deleteComment: deleteCommentRoute,
   addItem: addItemRoute,
   deleteItem: deleteItemRoute,
-  assignBringer: assignBringer
+  assignBringer: assignBringer,
+  addGuest: addGuestRoute,
+  search: searchRoute
 };

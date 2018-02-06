@@ -23,6 +23,9 @@ router.route('/events/:id')
   .get(secureRoute, event.update)
   .delete(secureRoute, event.delete);
 
+router.route('/events/:id/join')
+  .put(secureRoute, event.addGuest);
+
 router.route('/events/:id/comments')
   .post(secureRoute, event.addComment);
 
@@ -35,6 +38,9 @@ router.route('/events/:id/items')
 router.route('/events/:id/items/:itemId')
   .delete(secureRoute, event.deleteItem)
   .put(secureRoute, event.assignBringer);
+
+router.route('/events/search/:eventKey')
+  .get(secureRoute, event.search);
 
 
 module.exports = router;
