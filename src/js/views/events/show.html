@@ -1,46 +1,82 @@
-<h2>Show Page</h2>
-<div class="container">
-  <div class="columns">
-    <div class="column column-is-one-quarter">
-      <figure class="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      <h3>{{ vm.event.eventName }}</h3>
-      <p>{{ vm.event.description }}</p>
-      <p>{{ vm.event.date }}</p>
-      <p>event key: {{ vm.event.eventKey }}</p>
+<div class="columns">
 
-      <button ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
+  <div class="column is-one-quarter">
+    <figure class="image is-square">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
 
+    <div class="label">
+      {{ vm.event.eventName }}
+    </div>
+    <p>{{ vm.event.description }}</p>
+    <p>{{ vm.event.date | date }}</p>
+    <p>event key: {{ vm.event.eventKey }}</p>
+
+    <div>
+      <p class="label">Guest Attending</p>
+      <button class="button" ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
       <ul ng-repeat="guest in vm.event.guests track by $index">
         <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
       </ul>
-
-      <div>
-        <h3>Items</h3>
-        <p ng-if="!vm.event.items.length">0 items</p>
-
-        <ul>
-          <li ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
-            {{ item.itemName }} {{ item.amount }}
-            <button ng-click="vm.assignBringer(item)">I bing it</button>
-          </li>
-        </ul>
-        <ul>
-          <li ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
-            {{ item.itemName }} {{ item.amount }}
-            <h6> {{ item.bringer.firstName }} </h6>
-            <button ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">cancel</button>
-          </li>
-        </ul>
-
-        <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
-          <label>Add item</label>
-          <input type="text" name="itemName" value="item" ng-model="vm.newItem.itemName">
-          <button>+</button>
-        </form>
-      </div>
-
     </div>
   </div>
+
+  <div class="column is-one-quarter">
+      <h3 class="label">Still needed to Bring</h3>
+      <p ng-if="!vm.event.items.length">0 items</p>
+
+      <ul ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+        <li >
+          <div class="field is-horizontal">
+            <div class="field-label">
+
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <button class="button" ng-click="vm.assignBringer(item)"> {{ item.itemName }} {{ item.amount }} - Bring It!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" name="itemName" value="item" ng-model="vm.newItem.itemName">
+          </div>
+          <div class="control">
+            <button class="button is-info">
+              +
+            </button>
+          </div>
+        </div>
+      </form>
+
+  </div>
+
+  <div class="column is-one-quarter">
+    <div>
+      <h3 class="label">Items already claimed</h3>
+      <ul>
+        <li ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
+          <div class="field has-addons">
+            <div class="control">
+            <span class="input">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            </div>
+            <div class="control">
+              <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
+                -
+              </button>
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
 </div>
