@@ -1,5 +1,5 @@
+<h2>Show Event</h2>
 <div class="columns">
-
   <div class="column is-one-quarter">
     <figure class="image is-square">
       <img src="https://bulma.io/images/placeholders/128x128.png">
@@ -22,38 +22,35 @@
   </div>
 
   <div class="column is-one-quarter">
-      <h3 class="label">Still needed to Bring</h3>
-      <p ng-if="!vm.event.items.length">0 items</p>
+    <h3 class="label">Still needed to Bring</h3>
+    <p ng-if="!vm.event.items.length">0 items</p>
 
-      <ul ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
-        <li >
-          <div class="field is-horizontal">
-            <div class="field-label">
-
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <button class="button" ng-click="vm.assignBringer(item)"> {{ item.itemName }} {{ item.amount }} - Bring It!</button>
-                </div>
-              </div>
-            </div>
+    <div class="column is-9">
+      <ul>
+        <li class="field has-addons has-addons-right" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+          <div class="control">
+            <span class="input">{{ item.itemName }} {{ item.amount }} </span>
           </div>
+          <div class="control">
+            <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
+          </div>
+
         </li>
       </ul>
+    </div>
 
-      <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
-        <div class="field has-addons">
-          <div class="control">
-            <input class="input" type="text" name="itemName" value="item" ng-model="vm.newItem.itemName">
-          </div>
-          <div class="control">
-            <button class="button is-info">
-              +
-            </button>
-          </div>
+    <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
+      <div class="field has-addons has-addons-centered">
+        <div class="control">
+          <input class="input" type="text" name="itemName" value="item" ng-model="vm.newItem.itemName" placeholder="add item to the list">
         </div>
-      </form>
+        <div class="control">
+          <button class="button is-info">
+            +
+          </button>
+        </div>
+      </div>
+    </form>
 
   </div>
 
@@ -61,16 +58,14 @@
     <div>
       <h3 class="label">Items already claimed</h3>
       <ul>
-        <li ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
-          <div class="field has-addons">
-            <div class="control">
+        <li class="field has-addons" ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
+          <div class="control">
             <span class="input">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
-            </div>
-            <div class="control">
-              <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
-                -
-              </button>
-            </div>
+          </div>
+          <div class="control">
+            <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
+              -
+            </button>
           </div>
 
         </li>

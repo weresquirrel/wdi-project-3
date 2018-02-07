@@ -17,9 +17,9 @@
 
 <body ng-controller="MainCtrl as main">
 
-  <nav ng-hide="main.hideNav" class="navbar is-transparent">
+  <nav ng-hide="main.hideNav" class="navbar level is-transparent">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <a class="navbar-item level-item">
         <h1>BringIt!</h1>
       </a>
       <div class="navbar-burger burger nav-toogle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen"  data-target="navbarExampleTransparentExample">
@@ -30,20 +30,20 @@
     </div>
     <div id="navbarExampleTransparentExample" class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen }">
       <div class="navbar-start">
-        <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="userShow({ id: main.userId })">
+        <a class="nav-item level-item" ng-if="main.isAuthenticated()" ui-sref="userShow({ id: main.userId })">
           HOME
         </a>
       </a>
-      <a class="nav-item" ui-sref="createEvent" ng-if="main.isAuthenticated()">
+      <a class="nav-item level-item" ui-sref="createEvent" ng-if="main.isAuthenticated()">
         CREATE EVENT
       </a>
-        <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+        <a class="nav-item level-item" ui-sref="login" ng-if="!main.isAuthenticated()">
           LOGIN
         </a>
-        <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+        <a class="nav-item level-item" ui-sref="register" ng-if="!main.isAuthenticated()">
           REGISTER
         </a>
-        <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+        <a class="nav-item level-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">
           LOGOUT
         </a>
       </div>
