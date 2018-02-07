@@ -10,16 +10,17 @@
     </div>
     <p>{{ vm.event.description }}</p>
     <p>{{ vm.event.date | date }}</p>
-    <p>{{ vm.event.location }}</p>
+
+    <p>Location:</p>
+    <p>{{ vm.event.location.firstLine }}</p>
+    <p>{{ vm.event.location.secondLine }}</p>
+    <p>{{ vm.event.location.city }}</p>
+    <p>{{ vm.event.location.postal_code }}</p>
+
     <p>event key: {{ vm.event.eventKey }}</p>
 
-  
-
-
     <div>
-      <p>map comes here:</p>
-      <google-map center="{ lat: 44.9, lng: 12.2 }" message="dolor LOL amet"></google-map>
-      <google-map center="{{ vm.event.location }}" message="dolor GA amet"></google-map>
+      <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
 
     <div>

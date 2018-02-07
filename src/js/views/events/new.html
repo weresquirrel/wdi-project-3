@@ -36,12 +36,48 @@
 
         <div class="field is-horizontal">
           <div class="field-label is-normal">
-            <label class="label" for="location">Location</label>
+            <label class="label" for="postcode">Postcode</label>
           </div>
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="location" id="location" ng-model="vm.event.location">
+                <input class="input" type="text" name="postcode" id="postcode" ng-model="vm.event.location.postal_code">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="firstLine">1st line</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="firstLine" id="firstLine" ng-model="vm.event.location.firstLine">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="secondLine">2nd line</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="secondLine" id="secondLine" ng-model="vm.event.location.secondLine">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="city">city/town</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" name="city" id="city" ng-model="vm.event.location.city">
               </div>
             </div>
           </div>

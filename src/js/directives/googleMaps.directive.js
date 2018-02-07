@@ -14,7 +14,7 @@ function googleMap($window) {
     },
     link(scope, element) {
       const map = new $window.google.maps.Map(element[0], {
-        zoom: 6,
+        zoom: 16,
         center: scope.center
       });
 
