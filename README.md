@@ -58,6 +58,7 @@ Your app must:
 ### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#technologies-used)Technologies Used
 
 ### [](https://github.com/omrprt/wdi-second-project#dependencies)Dependencies
+- angular filePicker
 - bcrypt
 - bluebird
 - body-parser

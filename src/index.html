@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500,700,900&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -50,7 +51,7 @@
       <div class="navbar-end">
 
 
-          <form class="nav-item level-item" ng-submit="main.searchParty(main.searchInput)">
+          <form class="nav-item level-item" ng-if="main.isAuthenticated()" ng-submit="main.searchParty(main.searchInput)">
             <div class="field has-addons">
 <div class="control">
               <input class="input" type="text" placeholder="Enter six-digit event key..." ng-model="main.searchInput">
