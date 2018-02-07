@@ -1,4 +1,4 @@
-
+<section class="regPage">
       <form ng-submit="vm.submit()">
 
         <div class="field is-horizontal">
@@ -8,7 +8,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="firstName" id="firstName" ng-model="vm.user.firstName"  placeholder="First Name">
+                <input class="input regInput" type="text" name="firstName" id="firstName" ng-model="vm.user.firstName"  placeholder="First Name">
               </div>
             </div>
           </div>
@@ -21,7 +21,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="First Name">
+                <input class="input regInput" type="text" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="First Name">
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="username" id="username" ng-model="vm.user.username" placeholder="username">
+                <input class="input regInput" type="text" name="username" id="username" ng-model="vm.user.username" placeholder="username">
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="email" name="email" id="email" ng-model="vm.user.email" placeholder="Email">
+                <input class="input regInput" type="email" name="email" id="email" ng-model="vm.user.email" placeholder="Email">
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
+                <input class="input regInput" type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="password" name="password" id="password" ng-model="vm.user.password" placeholder="password">
+                <input class="input regInput" type="password" name="password" id="password" ng-model="vm.user.password" placeholder="password">
               </div>
             </div>
           </div>
@@ -86,16 +86,16 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation" placeholder="confirm password">
+                <input class="input regInput" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation" placeholder="confirm password">
               </div>
             </div>
           </div>
         </div>
 
-        <div>
+        <div class="buttons has-addons is-right">
           <p>
-            <button class="button" type="submit" value="Register">Register</button>
+            <button class="button regInput is-info" type="submit" value="Register">Register</button>
           </p>
         </div>
       </form>
-  
+</section>

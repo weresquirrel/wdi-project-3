@@ -18,6 +18,7 @@
 <body ng-controller="MainCtrl as main">
 
   <nav ng-hide="main.hideNav" class="navbar level is-transparent">
+    <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item level-item">
         <h1>BringIt!</h1>
@@ -47,18 +48,20 @@
         </a>
       </div>
       <div class="navbar-end">
-        <div class="field has-addons">
-          <form ng-submit="main.searchParty(main.searchInput)">
 
+
+          <form class="nav-item level-item" ng-submit="main.searchParty(main.searchInput)">
+            <div class="field has-addons">
+<div class="control">
               <input class="input" type="text" placeholder="Enter six-digit event key..." ng-model="main.searchInput">
-
-
+</div>
+<div class="control">
               <button class="button is-info">
                 Search
               </button>
-
+            </div>
+</div>
           </form>
-        </div>
       </div>
     </div>
   </nav>

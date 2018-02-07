@@ -30,12 +30,25 @@ p {
     }
 }
 
-.loginPage {
+.loginPage, .regPage {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .myPartiesDisplay {
     display: flex;
   }
+
+label.label {
+  min-width: 200px;
+}
+
+.loginButton, .loginInput {
+  min-width: 225px;
+}
+
+.regInput {
+ width: 300px;
+}
