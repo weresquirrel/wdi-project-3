@@ -2,14 +2,18 @@ angular
   .module('bringItApp')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['$state', '$sce', 'Event', 'EventComment', 'EventItem', 'AssignItem', 'EventGuest'];
-function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem, EventGuest) {
+EventsShowCtrl.$inject = ['$auth', '$state', '$sce', 'Event', 'EventComment', 'EventItem', 'AssignItem', 'EventGuest'];
+function EventsShowCtrl($auth, $state, $sce, Event, EventComment, EventItem, AssignItem, EventGuest) {
   const vm = this;
+
+  vm.isAttending = isAttending;
 
   Event.get($state.params)
     .$promise
     .then((event) => {
       vm.event = event;
+
+      isAttending();
     });
 
   vm.delete = eventsDelete;
@@ -81,5 +85,9 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem
   }
 
   vm.addGuest = addGuest;
+
+  function isAttending() {
+    return vm.event.guests.some(guest => guest._id === $auth.getPayload().userId);
+  }
 
 }
