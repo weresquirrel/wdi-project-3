@@ -1,6 +1,7 @@
 angular
   .module('bringItApp')
   .factory('Event', Event)
+  .factory('EventSearch', EventSearch)
   .factory('EventGuest', EventGuest)
   .factory('EventComment', EventComment)
   .factory('EventItem', EventItem)
@@ -10,6 +11,12 @@ Event.$inject = ['$resource', 'API'];
 function Event($resource, API){
   return $resource(`${API}/events/:id`, { id: '@_id'}, {
     'update': { method: 'PUT' }
+  });
+}
+
+Event.$inject = ['$resource', 'API'];
+function EventSearch($resource, API){
+  return $resource(`${API}/events/search/:eventKey`, { eventKey: '@eventKey'}, {
   });
 }
 

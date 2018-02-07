@@ -10,7 +10,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="text" name="email" id="email" ng-model="vm.credentials.email" placeholder="@">
+                <input class="input loginInput" type="text" name="email" id="email" ng-model="vm.credentials.email" placeholder="@">
               </div>
             </div>
           </div>
@@ -23,13 +23,13 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="password" name="password" id="password" ng-model="vm.credentials.password" placeholder="Password">
+                <input class="input loginInput" type="password" name="password" id="password" ng-model="vm.credentials.password" placeholder="Password">
               </div>
             </div>
           </div>
         </div>
-        <div>
-            <button class="button" type="submit" value="Login">LogIn</button>
+        <div class="buttons has-addons is-right">
+            <button class="button is-info loginButton" type="submit" value="Login">LogIn</button>
         </div>
       </form>
     </div>

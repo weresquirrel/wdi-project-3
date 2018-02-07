@@ -19,6 +19,9 @@ router.route('/users/:id')
 router.route('/events')
   .post(secureRoute, event.create);
 
+router.route('/events/search/:eventKey')
+  .get(secureRoute, event.search);
+
 router.route('/events/:id')
   .get(secureRoute, event.show)
   .delete(secureRoute, event.delete);
@@ -39,8 +42,7 @@ router.route('/events/:id/items/:itemId')
   .delete(secureRoute, event.deleteItem)
   .put(secureRoute, event.assignBringer);
 
-router.route('/events/search/:eventKey')
-  .get(secureRoute, event.search);
+
 
 
 module.exports = router;

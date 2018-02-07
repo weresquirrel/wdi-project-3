@@ -2,5 +2,6 @@ angular
   .module('bringItApp', [
     'ui.router',
     'ngResource',
-    'satellizer'
+    'satellizer',
+    'angular-filepicker'
   ]);

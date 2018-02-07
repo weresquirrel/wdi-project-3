@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500,700,900&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/style.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKstuur4XOTCAojB7tzkVjo4XlA0jbGmY"></script>
 </head>
@@ -19,6 +20,7 @@
 <body ng-controller="MainCtrl as main">
 
   <nav ng-hide="main.hideNav" class="navbar level is-transparent">
+    <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item level-item">
         <h1>BringIt!</h1>
@@ -34,7 +36,6 @@
         <a class="nav-item level-item" ng-if="main.isAuthenticated()" ui-sref="userShow({ id: main.userId })">
           HOME
         </a>
-      </a>
       <a class="nav-item level-item" ui-sref="createEvent" ng-if="main.isAuthenticated()">
         CREATE EVENT
       </a>
@@ -49,6 +50,20 @@
         </a>
       </div>
       <div class="navbar-end">
+
+
+          <form class="nav-item level-item" ng-if="main.isAuthenticated()" ng-submit="main.searchParty(main.searchInput)">
+            <div class="field has-addons">
+<div class="control">
+              <input class="input" type="text" placeholder="Enter six-digit event key..." ng-model="main.searchInput">
+</div>
+<div class="control">
+              <button class="button is-info">
+                Search
+              </button>
+            </div>
+</div>
+          </form>
       </div>
     </div>
   </nav>
