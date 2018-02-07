@@ -1,8 +1,8 @@
-const express = require('express');
-const router  = express.Router();
-const auth    = require('../controllers/auth');
-const event   = require('../controllers/event');
-const users   = require('../controllers/users');
+const express     = require('express');
+const router      = express.Router();
+const auth        = require('../controllers/auth');
+const event       = require('../controllers/event');
+const users       = require('../controllers/users');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/login')

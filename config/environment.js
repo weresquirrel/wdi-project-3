@@ -1,6 +1,6 @@
 const port = process.env.PORT || 4000;
-const env = process.env.NODE_ENV;
-const db = {
+const env  = process.env.NODE_ENV;
+const db   = {
   production: process.env.MONGODB_URI,
   development: 'mongodb://localhost/wdi-group-project-development',
   test: 'mongodb://localhost/wdi-group-project-test'
