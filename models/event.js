@@ -22,7 +22,14 @@ const eventSchema = new mongoose.Schema({
   eventName: { type: String, required: true },
   description: { type: String },
   date: { type: Date },
-  location: { type: String },
+  location: {
+    firstLine: { type: String },
+    secondLine: { type: String },
+    city: { type: String },
+    postal_code: { type: String, required: true },
+    lat: { type: Number },
+    lng: { type: Number }
+  },
   image: String,
   eventKey: Number,
   guests: [],
