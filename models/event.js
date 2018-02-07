@@ -32,7 +32,7 @@ const eventSchema = new mongoose.Schema({
   },
   image: String,
   eventKey: Number,
-  guests: [],
+  guests: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   items: [ itemSchema ],
   comments: [ commentSchema ],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
