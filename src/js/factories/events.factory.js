@@ -7,41 +7,38 @@ angular
   .factory('EventItem', EventItem)
   .factory('AssignItem', AssignItem);
 
-Event.$inject = ['$resource', 'API'];
-function Event($resource, API){
-  return $resource(`${API}/events/:id`, { id: '@_id'}, {
+Event.$inject = ['$resource'];
+function Event($resource){
+  return $resource('/api/events/:id', { id: '@_id'}, {
     'update': { method: 'PUT' }
   });
 }
 
-Event.$inject = ['$resource', 'API'];
-function EventSearch($resource, API){
-  return $resource(`${API}/events/search/:eventKey`, { eventKey: '@eventKey'}, {
+EventSearch.$inject = ['$resource'];
+function EventSearch($resource){
+  return $resource('/api/events/search/:eventKey', { eventKey: '@eventKey'}, {
   });
 }
 
-Event.$inject = ['$resource', 'API'];
-function EventGuest($resource, API){
-  return $resource(`${API}/events/:id/join`, { id: '@id'}, {
+EventGuest.$inject = ['$resource'];
+function EventGuest($resource){
+  return $resource('/api/events/:id/join', { id: '@id'}, {
     'update': { method: 'PUT' }
   });
 }
 
-EventItem.$inject = ['$resource', 'API'];
-function EventItem($resource, API) {
-  return new $resource(`${API}/events/:eventId/items`, { eventId: '@id' }, {
+EventItem.$inject = ['$resource'];
+function EventItem($resource) {
+  return new $resource('/api/events/:eventId/items', { eventId: '@id' }, {
   });
 }
 
-EventItem.$inject = ['$resource', 'API'];
-function AssignItem($resource, API) {
-  return new $resource(`${API}/events/:eventId/items/:itemId`, { eventId: '@eventId', itemId: '@itemId' }, {
+AssignItem.$inject = ['$resource'];
+function AssignItem($resource) {
+  return new $resource('/api/events/:eventId/items/:itemId', { eventId: '@eventId', itemId: '@itemId' }, {
     update: { method: 'PUT' }
   });
 }
-
-
-
 
 EventComment.$inject = ['$resource'];
 function EventComment($resource) {
