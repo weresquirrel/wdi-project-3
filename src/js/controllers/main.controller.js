@@ -2,8 +2,8 @@ angular
   .module('bringItApp')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth'];
-function MainCtrl($transitions, $rootScope, $state, $auth) {
+MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth', 'EventSearch'];
+function MainCtrl($transitions, $rootScope, $state, $auth, EventSearch) {
   const vm = this;
 
   vm.isAuthenticated = $auth.isAuthenticated;
@@ -33,6 +33,17 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
       $state.go('login');
     }
   });
+
+  function searchParty(searchInput) {
+    EventSearch
+      .get({ eventKey: searchInput })
+      .$promise
+      .then((response) => {
+        $state.go('showEvent', { id: response.id });
+      });
+  }
+
+  vm.searchParty = searchParty;
 
   function logout() {
     $auth.logout();
