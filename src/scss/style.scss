@@ -33,7 +33,6 @@ p {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-
   h2 {
     font-size: 60px;
   }
@@ -70,4 +69,9 @@ label.label {
 
 .regInput {
   width: 300px;
+}
+
+.eventInput {
+  width: 500px;
+  min-width: 0;
 }
