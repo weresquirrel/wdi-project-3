@@ -29,12 +29,13 @@
     </div>
     <div id="navbarExampleTransparentExample" class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen }">
       <div class="navbar-start">
-        <!-- <a class="nav-item" ui-sref="home" ng-if="!main.isAuthenticated()">
-          HOME
-        </a> -->
         <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="userShow({ id: main.userId })">
           HOME
         </a>
+      </a>
+      <a class="nav-item" ui-sref="createEvent" ng-if="main.isAuthenticated()">
+        CREATE EVENT
+      </a>
         <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
           LOGIN
         </a>
