@@ -13,9 +13,13 @@
     <p>{{ vm.event.location }}</p>
     <p>event key: {{ vm.event.eventKey }}</p>
 
+  
+
+
     <div>
       <p>map comes here:</p>
       <google-map center="{ lat: 44.9, lng: 12.2 }" message="dolor LOL amet"></google-map>
+      <google-map center="{{ vm.event.location }}" message="dolor GA amet"></google-map>
     </div>
 
     <div>
