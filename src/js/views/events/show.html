@@ -1,7 +1,7 @@
 <h2>Show Event</h2>
 <div class="columns">
   <div class="column is-one-quarter">
-    <figure class="image">
+    <figure class="image is-square">
       <img src="{{ vm.event.image }}">
     </figure>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="control">
           <button class="button is-info">
-            +
+          <i class="fa fa-plus"></i>
           </button>
         </div>
       </div>
@@ -72,17 +72,23 @@
     <div>
       <h3 class="label neededList">Items already claimed</h3>
       <ul>
-        <li class="field has-addons has-addons-centered" ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
+        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
           <div class="control">
-            <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            <span class="input iclaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
           </div>
           <div class="control">
             <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
-              -
+            <i class="fa fa-minus"></i>
             </button>
           </div>
-
         </li>
+
+        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+          <div class="control">
+            <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+          </div>
+        </li>
+
       </ul>
     </div>
 

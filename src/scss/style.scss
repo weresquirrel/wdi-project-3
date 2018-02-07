@@ -6,6 +6,10 @@ body  {
   }
 }
 
+img {
+  object-fit: cover;
+}
+
 h1, h2 {
   font-family: 'Bubblegum Sans', cursive;
 }
@@ -81,8 +85,13 @@ label.label {
   text-align: right;
 }
 
-.claimedItem {
+.iclaimed {
   width: 190px;
+}
+
+.claimedItem {
+  width: 230px;
+  border-radius: 10px;
 }
 
 .neededList {
