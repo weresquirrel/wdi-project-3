@@ -4,41 +4,85 @@
     <div>
       <form ng-submit="vm.update()">
         <div class="columns">
+
           <div class="column column is-one-quarter">
             <figure class="image is-square">
               <img src="https://bulma.io/images/placeholders/128x128.png">
             </figure>
           </div>
+
           <div class="column">
-                <div>
-                  <label for="firstName">First name</label>
-                  <p>
-                    <input type="text" name="firstName" id="firstName" ng-model="vm.user.firstName">
-                  </p>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label" for="firstName">First Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" name="firstName" id="firstName" ng-model="vm.user.firstName"  placeholder="First Name">
+                  </div>
                 </div>
-                <div>
-                  <label for="lastName">Last name</label>
-                  <p>
-                    <input type="text" name="lastName" id="lastName" ng-model="vm.user.lastName">
-                  </p>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label" for="lastName">Last Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="First Name">
+                  </div>
                 </div>
-                <div>
-                  <label for="profilePic">Profile picture</label>
-                  <p>
-                    <input type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
-                  </p>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label" for="username">Username</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" name="username" id="username" ng-model="vm.user.username" placeholder="username">
+                  </div>
                 </div>
-                <br>
-                <div>
-                  <label for="bio">Bio</label>
-                  <p>
-                    <textarea class="textarea" row="6" name="bio" id="bio" ng-model="vm.user.bio">
-                    </textarea>
-                    </p>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label" for="profilePic">Profile picture</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" name="profilePic" id="profilePic" ng-model="vm.user.profilePic">
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label" for="bio">bio</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <textarea class="textarea"  name="bio" id="bion" ng-model="vm.user.bio" rows="4"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
                 <div>
                   <p>
-                    <input type="submit" value="Update">
+                    <button class="button" type="submit">Update Profile</button>
                   </p>
                 </div>
           </div>
