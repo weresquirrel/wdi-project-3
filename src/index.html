@@ -48,6 +48,18 @@
         </a>
       </div>
       <div class="navbar-end">
+        <div class="field has-addons">
+          <form ng-submit="main.searchParty(main.searchInput)">
+
+              <input class="input" type="text" placeholder="Enter six-digit event key..." ng-model="main.searchInput">
+
+
+              <button class="button is-info">
+                Search
+              </button>
+
+          </form>
+        </div>
       </div>
     </div>
   </nav>
