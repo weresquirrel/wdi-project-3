@@ -40,9 +40,6 @@ function AssignItem($resource) {
   });
 }
 
-
-
-
 EventComment.$inject = ['$resource'];
 function EventComment($resource) {
   // eventId comes from the addComment() function in show.controller
