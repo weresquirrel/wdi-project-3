@@ -123,7 +123,9 @@ function assignBringer(req, res, next) {
       const item = event.items.id(req.params.itemId);
 
       if (req.body.status === 'assign') {
+        console.log('reached');
         item.bringer = req.user;
+        console.log(item);
       } else {
         item.bringer = null;
       }

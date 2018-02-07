@@ -20,7 +20,7 @@ router.route('/events')
   .post(secureRoute, event.create);
 
 router.route('/events/:id')
-  .get(secureRoute, event.update)
+  .get(secureRoute, event.show)
   .delete(secureRoute, event.delete);
 
 router.route('/events/:id/join')

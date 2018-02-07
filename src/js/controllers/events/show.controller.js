@@ -39,6 +39,7 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem
       .update({ eventId: vm.event.id , itemId: item.id}, { status: 'assign' })
       .$promise
       .then((response) => {
+        console.log(response);
         item.bringer = response.bringer;
       });
   }
@@ -50,6 +51,7 @@ function EventsShowCtrl($state, $sce, Event, EventComment, EventItem, AssignItem
       .update({ eventId: vm.event.id , itemId: item.id}, { status: 'unassign' })
       .$promise
       .then((response) => {
+        console.log(response);
         item.bringer = response.bringer;
       });
   }
