@@ -14,13 +14,13 @@ function Event($resource, API){
   });
 }
 
-Event.$inject = ['$resource', 'API'];
+EventSearch.$inject = ['$resource', 'API'];
 function EventSearch($resource, API){
   return $resource(`${API}/events/search/:eventKey`, { eventKey: '@eventKey'}, {
   });
 }
 
-Event.$inject = ['$resource', 'API'];
+EventGuest.$inject = ['$resource', 'API'];
 function EventGuest($resource, API){
   return $resource(`${API}/events/:id/join`, { id: '@id'}, {
     'update': { method: 'PUT' }
@@ -33,7 +33,7 @@ function EventItem($resource, API) {
   });
 }
 
-EventItem.$inject = ['$resource', 'API'];
+AssignItem.$inject = ['$resource', 'API'];
 function AssignItem($resource, API) {
   return new $resource(`${API}/events/:eventId/items/:itemId`, { eventId: '@eventId', itemId: '@itemId' }, {
     update: { method: 'PUT' }
