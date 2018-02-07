@@ -1,15 +1,15 @@
-<Section class="newEvent">
+<section class="newEvent">
   <h2>Create Event</h2>
-
+<form ng-submit="vm.createEvent()">
   <div class="columns">
     <div class="column column is-one-quarter">
-      <figure class="image is-square" ng-if="vm.event.image">
+      <figure class="image" ng-if="vm.event.image">
         <img src="{{ vm.event.image }}">
       </figure>
     </div>
     <div class="column">
 
-      <form ng-submit="vm.createEvent()">
+
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label" for="eventName">Event name</label>
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-      </form>
     </div>
   </div>
+  </form>
 </section>
