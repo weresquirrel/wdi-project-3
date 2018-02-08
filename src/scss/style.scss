@@ -10,10 +10,15 @@ body  {
 
 img {
   object-fit: cover;
+  border-radius: 10px;
 }
 
 h1, h2 {
   font-family: 'Bubblegum Sans', cursive;
+}
+
+h2 {
+  font-size: 35px;
 }
 
 p {
@@ -119,4 +124,5 @@ label.label {
 	position: absolute;
 	top: 0;
 	width: 100%;
+  border-radius: 10px;
 }
