@@ -9,6 +9,7 @@ function EventsEditCtrl($state, Event) {
   Event.get($state.params)
     .$promise
     .then((event) => {
+      console.log(event);
       vm.event = event;
     });
 
