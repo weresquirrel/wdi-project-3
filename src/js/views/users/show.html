@@ -16,10 +16,10 @@
       </div>
     </div>
     <div>
-      <a class="button" ui-sref="editUser ({ id: vm.user.id })">
+      <a class="button" ui-sref="editUser ({ id: vm.user.id })" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
         Edit my Profile
       </a>
-      <a class="button" ui-sref="createEvent">
+      <a class="button" ui-sref="createEvent" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
         Create a new event
       </a>
     </div>

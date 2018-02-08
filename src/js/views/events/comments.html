@@ -1,0 +1,14 @@
+<div class="comments">
+  <h2>Comments</h2>
+  <p ng-if="!vm.event.comments.length">0 comments</p>
+  <ul class="comments__created">
+    <li ng-repeat="comment in vm.event.comments track by $index">
+      <a ui-sref="userShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</strong></a> - {{ comment.content }} <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id">Delete</button>
+    </li>
+  </ul>
+  <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+    <label>Add comment</label>
+    <textarea ng-model="vm.newComment.content"></textarea>
+    <button>Comment</button>
+  </form>
+</div>
