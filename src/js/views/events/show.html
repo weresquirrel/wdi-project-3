@@ -24,7 +24,7 @@
 
     <div>
       <p class="label">Guest Attending</p>
-      <button ng-hide="vm.isAttending()"class="button" ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
+      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy"class="button" ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
       <ul ng-repeat="guest in vm.event.guests track by $index">
         <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
       </ul>

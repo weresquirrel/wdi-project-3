@@ -17,6 +17,12 @@ userSchema.virtual('hosting', {
   foreignField: 'createdBy' // to match up with the createdBy field in the Post schema
 });
 
+userSchema.virtual('attending', {
+  ref: 'Event',
+  localField: '_id', // use the _id field from this schema
+  foreignField: 'guests' // to match up with the createdBy field in the Post schema
+});
+
 userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {

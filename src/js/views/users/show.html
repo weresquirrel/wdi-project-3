@@ -36,5 +36,9 @@
   </div>
   <div class="column">
     <strong>Parties I am attending</strong>
+
+    <ul ng-repeat="attend in vm.user.attending">
+      <li><a ui-sref="showEvent({ id: attend.id })">{{ attend.eventName }}</a></li>
+    </ul>
   </div>
 </div>
