@@ -1,52 +1,36 @@
 <div class="columns">
-  <div class="column is-one-third">
+  <div class="column is-one-quarter">
     <figure class="image is-square">
       <img src="{{ vm.event.image }}">
     </figure>
-  </div>
-  <div class="column is-one-third">
+    <div class="partyDetails">
     <div class="label has-text-centered">
       <h2> {{ vm.event.eventName }} </h2>
       <p>Event Code: {{ vm.event.eventKey }} </p>
+      <a class="button" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy">Edit event</a>
     </div>
 
     <p>{{ vm.event.description }}</p>
+
     <p>{{ vm.event.date | date }}</p>
 
-    <p>Location:</p>
     <p>{{ vm.event.location.firstLine }}</p>
     <p>{{ vm.event.location.secondLine }}</p>
     <p>{{ vm.event.location.city }}</p>
     <p>{{ vm.event.location.postal_code }}</p>
+    </div>
 
-  </div>
-  <div class="column is-one-third">
     <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
-  </div>
-</div>
 
-<div class="columns">
-  <div class="column is-one-third">
-    <div>
-      <p class="label">Guest Attending</p>
-      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
-        I'm attending {{ vm.event.eventName }}
-      </button>
-      <ul ng-repeat="guest in vm.event.guests track by $index">
-        <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
-      </ul>
-    </div>
   </div>
-
-  <div class="column is-one-third">
-    <h3 class="label neededList">Bringit!!!</h3>
+  <div class="column">
+    <h3 class="neededList">Bringit!!!</h3>
     <p ng-if="!vm.event.items.length">0 items</p>
 
-
     <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
-      <div class="field has-addons has-addons-centered">
+      <div class="field has-addons has-addons-left">
         <div class="control">
           <input class="input" type="text" name="itemName" value="item" ng-model="vm.newItem.itemName" placeholder="add item to the list">
         </div>
@@ -57,10 +41,8 @@
         </div>
       </div>
     </form>
-    <br>
-
     <ul>
-      <li class="field has-addons has-addons-centered" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+      <li class="field has-addons has-addons-left" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
         <div class="control">
           <span class="input neededItem">{{ item.itemName }} {{ item.amount }} </span>
         </div>
@@ -70,12 +52,11 @@
       </li>
     </ul>
   </div>
-
-  <div class="column is-one-third">
+  <div class="column">
     <div>
-      <h3 class="label neededList">Items already claimed</h3>
+      <h3 class="neededList">Items already claimed</h3>
       <ul>
-        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+        <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
           <div class="control">
             <span class="input iClaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
           </div>
@@ -86,7 +67,7 @@
           </div>
         </li>
 
-        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+        <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
           <div class="control">
             <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
           </div>
@@ -94,21 +75,60 @@
 
       </ul>
     </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div>
+      <h3 class="guestList">Guests Attending</h3>
+      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
+        I'm attending {{ vm.event.eventName }}
+      </button>
+      <ul ng-repeat="guest in vm.event.guests track by $index">
+        <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="column">
+
+    <br>
+
+
+  </div>
+
+  <div class="column">
+
 
   </div>
 </div>
 
+<div><h3>Comments</h3></div>
+<div class="columns comments">
+
+  <div class="column is-two-fifths">
+    <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+      <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="4"></textarea>
+      <button>Comment</button>
+    </form>
+  </div>
+  <div class="column is-three-fifths">
+    <p ng-if="!vm.event.comments.length">0 comments</p>
+    <ul class="comments__created">
+      <li ng-repeat="comment in vm.event.comments track by $index">
+        <a ui-sref="userShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</strong></a> - {{ comment.content }} <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="comments">
-  <h2>Comments</h2>
-  <p ng-if="!vm.event.comments.length">0 comments</p>
-  <ul class="comments__created">
-    <li ng-repeat="comment in vm.event.comments track by $index">
-      <a ui-sref="userShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</strong></a> - {{ comment.content }} <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id">Delete</button>
-    </li>
-  </ul>
-  <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-    <label>Add comment</label>
-    <textarea ng-model="vm.newComment.content"></textarea>
-    <button>Comment</button>
-  </form>
+
+
 </div>
