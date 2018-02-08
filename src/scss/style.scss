@@ -4,6 +4,7 @@ body  {
     background-image: url('https://images.unsplash.com/photo-1479803244419-b24dfe9cbafa?ixlib=rb-0.3.5&s=d2e98a6fc665593fe0af82352b0a4401&auto=format&fit=crop&w=2250&q=80');
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
   }
 }
 
@@ -44,7 +45,7 @@ p {
 }
 
 .homeLogo {
-  width: 30%;
+  width: 370px;
   height: 20%;
   background:rgba(255,255,255, 0.6);
   border-radius: 10px;
@@ -52,6 +53,13 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.homeButtons{
+  justify-content: space-evenly;
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
 }
 
 .loginPage, .regPage {
