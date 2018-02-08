@@ -58,12 +58,8 @@
           <div class="control">
             <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
           </div>
-
         </li>
       </ul>
-
-
-
   </div>
 
   <div class="column is-one-quarter">
@@ -72,7 +68,7 @@
       <ul>
         <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
           <div class="control">
-            <span class="input iclaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            <span class="input iClaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
           </div>
           <div class="control">
             <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
