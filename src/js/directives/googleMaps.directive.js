@@ -7,7 +7,7 @@ function googleMap($window) {
   return {
     restrict: 'E',
     replace: true,
-    template: '<div class="google-map" style="height: 300px; width: 300px; display: inline-block;">Google Map Goes Here</div>',
+    template: '<div class="google-map"; display: inline-block;">Google Map Goes Here</div>',
     scope: {
       center: '=',
       message: '@'

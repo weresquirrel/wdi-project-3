@@ -1,4 +1,5 @@
 body  {
+  margin: 10px;
   &.home {
     background-image: url('https://images.unsplash.com/photo-1479803244419-b24dfe9cbafa?ixlib=rb-0.3.5&s=d2e98a6fc665593fe0af82352b0a4401&auto=format&fit=crop&w=2250&q=80');
     background-repeat: no-repeat;
@@ -101,4 +102,14 @@ label.label {
 .userUpdate {
   width: 500px;
   min-width: 0;
+}
+
+
+.google-map {
+	border: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }

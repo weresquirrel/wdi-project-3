@@ -6,11 +6,9 @@
     </figure>
 
     <div class="label">
-      {{ vm.event.eventName }} - <span> {{ vm.event.description }} </span>
+      {{ vm.event.eventName }} - <span> Event Code: {{ vm.event.eventKey }} </span>
     </div>
-    <div>
-    Party Code: {{ vm.event.eventKey }}
-    </div>
+
     <p>{{ vm.event.description }}</p>
     <p>{{ vm.event.date | date }}</p>
 
@@ -20,7 +18,7 @@
     <p>{{ vm.event.location.city }}</p>
     <p>{{ vm.event.location.postal_code }}</p>
 
-    <div>
+    <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
 
