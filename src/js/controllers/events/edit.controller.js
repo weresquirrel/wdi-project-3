@@ -9,19 +9,26 @@ function EventsEditCtrl($state, Event) {
   Event.get($state.params)
     .$promise
     .then((event) => {
-      console.log(event);
+      event.date = new Date(event.date);
       vm.event = event;
     });
 
-  vm.update = eventsUpdate;
+
 
   function eventsUpdate(){
+
+    console.log('eventsUpdate function');
+
     Event
-      .update($state.params, vm.event)
+      .update({ id: vm.event.id }, vm.event)
       .$promise
       .then(() => {
-        $state.go('eventShow',
-          $state.params);
+        $state.go('showEvent',
+          { id: vm.event.id });
       });
+
+
   }
+
+  vm.updateEvent = eventsUpdate;
 }

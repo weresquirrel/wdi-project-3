@@ -39,7 +39,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('editEvent', {
       url: '/events/:id',
       templateUrl: 'js/views/events/edit.html',
-      controller: 'NewEventCtrl as vm'
+      controller: 'EventEditCtrl as vm'
     })
     .state('showEvent', {
       url: '/events/:id',
