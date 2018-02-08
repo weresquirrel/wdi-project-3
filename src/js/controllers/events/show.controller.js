@@ -74,6 +74,18 @@ function EventsShowCtrl($auth, $state, $sce, Event, EventComment, EventItem, Ass
 
   vm.addComment = addComment;
 
+  function deleteComment(comment) {
+    EventComment
+      .delete({ eventId: vm.event.id, id: comment.id })
+      .$promise
+      .then(() => {
+        const index = vm.event.comments.indexOf(comment);
+        vm.event.comments.splice(index, 1);
+      });
+  }
+
+  vm.deleteComment = deleteComment;
+
   function addGuest() {
     console.log('addGuest function');
     EventGuest

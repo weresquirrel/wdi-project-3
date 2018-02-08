@@ -10,10 +10,20 @@ body  {
 
 img {
   object-fit: cover;
+  border-radius: 10px;
 }
 
 h1, h2 {
   font-family: 'Bubblegum Sans', cursive;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 p {
@@ -58,9 +68,8 @@ p {
   justify-content: space-evenly;
     display: flex;
     width: 75%;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
     align-self: center;
-
 }
 
 .loginPage, .regPage {
@@ -95,7 +104,7 @@ label.label {
   text-align: right;
 }
 
-.iclaimed {
+.iClaimed {
   width: 190px;
 }
 
@@ -104,9 +113,9 @@ label.label {
   border-radius: 10px;
 }
 
-.neededList {
-  text-align: center;
-}
+// .neededList {
+//   text-align: center;
+// }
 
 .userUpdate {
   width: 500px;
@@ -120,4 +129,17 @@ label.label {
 	position: absolute;
 	top: 0;
 	width: 100%;
+  border-radius: 10px;
+}
+
+.commentField {
+  width: 500px;
+}
+
+.partyDetails {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 75%;
 }
