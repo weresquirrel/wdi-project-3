@@ -56,7 +56,7 @@ p {
   .nav-item {
     color: white;
      &:hover {
-    color: #32a973;
+    color: silver;
     font-weight: bold;
      }
   }
@@ -87,6 +87,7 @@ p {
   justify-content: space-evenly;
     display: flex;
     width: 75%;
+    margin-top: 2vh;
     margin-bottom: 2vh;
     align-self: center;
 }
@@ -113,6 +114,9 @@ section.newEvent {
   margin: 0px auto;
   background-color: #f8f9f1;
   border-radius: 10px;
+  label.label {
+    min-width: 125px;
+  }
 }
 
 .loginPage {
@@ -243,6 +247,6 @@ footer {
   justify-content: center;
   align-items: center;
     a {
-      color: black;
+      color: silver;
     }
 }
