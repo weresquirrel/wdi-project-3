@@ -24,20 +24,10 @@
     </div>
   </div>
 
-  <div class="column">
-    <div>
-      <h3 class="guestList">Guests Attending</h3>
-      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
-        I'm attending {{ vm.event.eventName }}
-      </button>
-      <ul ng-repeat="guest in vm.event.guests track by $index">
-        <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
-      </ul>
-    </div>
-
-    <div class="columns">
-      <div class="column is-half">
-        <h3 class="neededList">Bringit!</h3>
+  <div class="column is-half">
+    <div class="columns is-multiline">
+      <div class="column is-half bList">
+        <h3 class="neededList">BringIt!</h3>
         <p ng-if="!vm.event.items.length">0 items</p>
 
         <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
@@ -64,54 +54,95 @@
         </ul>
       </div>
 
-      <div class="column is-half">
-        <div>
-          <h3 class="neededList">Items already claimed</h3>
-          <ul>
-            <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
-              <div class="control">
-                <span class="input iClaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
-              </div>
-              <div class="control">
-                <button class="button greenButton" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
-                  <i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </li>
+      <div class="column is-half bList">
+        <h3 class="neededList">Items already claimed</h3>
+        <ul>
+          <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+            <div class="control">
+              <span class="input iClaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            </div>
+            <div class="control">
+              <button class="button greenButton" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </li>
 
-            <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
-              <div class="control">
-                <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
-              </div>
-            </li>
-
-          </ul>
-        </div>
+          <li class="field has-addons has-addons-left" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+            <div class="control">
+              <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            </div>
+          </li>
+        </ul>
       </div>
 
-    </div>
-    <ul class="comments__created">
-      <li ng-repeat="comment in vm.event.comments track by $index">
-        <div class="field is-horizontal is-left">
-          <div class="field-label is-normal">
-            <strong><a ui-sref="userShow({ id: comment.createdBy.id })">{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</a></strong>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <div ><span class="commentField">{{ comment.content }}</span> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+
+
+      <div class="column">
+      <ul class="comments__created">
+        <li ng-repeat="comment in vm.event.comments track by $index">
+          <div class="field is-horizontal is-left">
+            <div class="field-label is-normal">
+              <strong><a ui-sref="userShow({ id: comment.createdBy.id })">{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</a></strong>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div ><span class="commentField">{{ comment.content }}</span> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </ul>
+
+
+      <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+        <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="3"></textarea>
+        <button class= "button greenButton">Make Comment</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="column is-one-quarter">
+    <h3 class="guestList">Guests Attending</h3>
+    <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
+      I'm attending {{ vm.event.eventName }}
+    </button>
+    <ul ng-repeat="guest in vm.event.guests track by $index">
+      <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
     </ul>
+  </div>
+</div>
 
 
-    <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-      <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="3"></textarea>
-      <button class= "button greenButton">Make Comment</button>
-    </form>
+
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+
+  </div>
+
+  <div class="column">
+    <div>
+
+    </div>
+
+    <div class="columns">
+      <div class="column is-half">
+
+      </div>
+
+      <div class="column is-half">
+        <div>
+
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

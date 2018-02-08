@@ -88,6 +88,21 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 600px;
+  padding: 30px;
+  margin: 0 auto;s
+  label.label {
+    min-width: 150px;
+  }
+}
+
+.loginPage {
+  width: 600px;
+  min-height: 200px;
+  margin: 0 auto;
+  label.label {
+    min-width: 100px;
+  }
 }
 
 .myPartiesDisplay {
@@ -95,8 +110,8 @@ p {
   min-height: 250px;
   min-width: 250px;
   border-radius: 10px;
-
 }
+
 
 label.label {
   min-width: 200px;
@@ -180,8 +195,16 @@ label.label {
 
 .paleBackGround {
   background-color: #f8f9f1;
+  border-radius: 10px;
 }
 
 .viewTitle {
   font-size: 30px;
+  font-weight: bold;
+}
+
+.bList {
+  background-color: #f8f9f1;
+  min-height: 300px;
+  border-radius: 10px;
 }

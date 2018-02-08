@@ -1,20 +1,11 @@
 
-<div class="columns">
+<div class="columns is-4">
   <div class="column is-one-quarter">
     <figure class="image is-square">
       <img src="{{ vm.user.profilePic }}">
     </figure>
   </div>
   <div class="column">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>{{ vm.user.username | uppercase}}</strong>
-          <br>
-          My BIO: {{ vm.user.bio }}
-        </p>
-      </div>
-    </div>
     <div>
       <a class="button greenButton" ui-sref="editUser ({ id: vm.user.id })" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
         Edit my Profile
@@ -23,6 +14,16 @@
         Create a new event
       </a>
     </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <div class="viewTitle">{{ vm.user.username | uppercase}}</div>
+          <br>
+          {{ vm.user.bio }}
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
 <div class= "columns is-4">
