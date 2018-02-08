@@ -2,12 +2,13 @@
 <div class="columns">
   <div class="column is-one-quarter">
     <figure class="image is-square">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
+      <img src="{{ vm.event.image }}">
     </figure>
 
     <div class="label">
-      {{ vm.event.eventName }}
+      {{ vm.event.eventName }} - <span> Event Code: {{ vm.event.eventKey }} </span>
     </div>
+
     <p>{{ vm.event.description }}</p>
     <p>{{ vm.event.date | date }}</p>
 
@@ -17,15 +18,13 @@
     <p>{{ vm.event.location.city }}</p>
     <p>{{ vm.event.location.postal_code }}</p>
 
-    <p>event key: {{ vm.event.eventKey }}</p>
-
-    <div>
+    <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
 
     <div>
       <p class="label">Guest Attending</p>
-      <button class="button" ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
+      <button ng-hide="vm.isAttending()"class="button" ng-click="vm.addGuest()">I'm attending {{ vm.event.eventName }}</button>
       <ul ng-repeat="guest in vm.event.guests track by $index">
         <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
       </ul>
@@ -33,22 +32,9 @@
   </div>
 
   <div class="column is-one-quarter">
-    <h3 class="label">Still needed to Bring</h3>
+    <h3 class="label neededList">Still needed to Bring</h3>
     <p ng-if="!vm.event.items.length">0 items</p>
 
-    <div class="column is-9">
-      <ul>
-        <li class="field has-addons has-addons-right" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
-          <div class="control">
-            <span class="input">{{ item.itemName }} {{ item.amount }} </span>
-          </div>
-          <div class="control">
-            <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
-          </div>
-
-        </li>
-      </ul>
-    </div>
 
     <form ng-submit="vm.addItem()" ng-if="main.isAuthenticated()">
       <div class="field has-addons has-addons-centered">
@@ -57,29 +43,50 @@
         </div>
         <div class="control">
           <button class="button is-info">
-            +
+          <i class="fa fa-plus"></i>
           </button>
         </div>
       </div>
     </form>
+  <br>
+
+      <ul>
+        <li class="field has-addons has-addons-centered" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+          <div class="control">
+            <span class="input neededItem">{{ item.itemName }} {{ item.amount }} </span>
+          </div>
+          <div class="control">
+            <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
+          </div>
+
+        </li>
+      </ul>
+
+
 
   </div>
 
   <div class="column is-one-quarter">
     <div>
-      <h3 class="label">Items already claimed</h3>
+      <h3 class="label neededList">Items already claimed</h3>
       <ul>
-        <li class="field has-addons" ng-if="item.bringer" ng-repeat="item in vm.event.items track by $index">
+        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId === item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
           <div class="control">
-            <span class="input">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+            <span class="input iclaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
           </div>
           <div class="control">
             <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
-              -
+            <i class="fa fa-minus"></i>
             </button>
           </div>
-
         </li>
+
+        <li class="field has-addons has-addons-centered" ng-if="item.bringer && (main.userId !== item.bringer.id)" ng-repeat="item in vm.event.items track by $index">
+          <div class="control">
+            <span class="input claimedItem">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
+          </div>
+        </li>
+
       </ul>
     </div>
 

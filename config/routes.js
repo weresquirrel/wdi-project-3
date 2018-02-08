@@ -42,7 +42,4 @@ router.route('/events/:id/items/:itemId')
   .delete(secureRoute, event.deleteItem)
   .put(secureRoute, event.assignBringer);
 
-
-
-
 module.exports = router;
