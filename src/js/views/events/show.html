@@ -1,10 +1,10 @@
-<h2>Show Event</h2>
 <div class="columns">
-  <div class="column is-one-quarter">
+  <div class="column is-one-third">
     <figure class="image is-square">
       <img src="{{ vm.event.image }}">
     </figure>
-
+  </div>
+  <div class="column is-one-third">
     <div class="label">
       {{ vm.event.eventName }} - <span> Event Code: {{ vm.event.eventKey }} </span>
     </div>
@@ -18,10 +18,16 @@
     <p>{{ vm.event.location.city }}</p>
     <p>{{ vm.event.location.postal_code }}</p>
 
+  </div>
+  <div class="column is-one-third">
     <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
+  </div>
+</div>
 
+<div class="columns">
+  <div class="column is-one-third">
     <div>
       <p class="label">Guest Attending</p>
       <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
@@ -33,8 +39,8 @@
     </div>
   </div>
 
-  <div class="column is-one-quarter">
-    <h3 class="label neededList">Still needed to Bring</h3>
+  <div class="column is-one-third">
+    <h3 class="label neededList">Bringit!!!</h3>
     <p ng-if="!vm.event.items.length">0 items</p>
 
 
@@ -45,26 +51,26 @@
         </div>
         <div class="control">
           <button class="button is-info">
-          <i class="fa fa-plus"></i>
+            <i class="fa fa-plus"></i>
           </button>
         </div>
       </div>
     </form>
-  <br>
+    <br>
 
-      <ul>
-        <li class="field has-addons has-addons-centered" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
-          <div class="control">
-            <span class="input neededItem">{{ item.itemName }} {{ item.amount }} </span>
-          </div>
-          <div class="control">
-            <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
-          </div>
-        </li>
-      </ul>
+    <ul>
+      <li class="field has-addons has-addons-centered" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
+        <div class="control">
+          <span class="input neededItem">{{ item.itemName }} {{ item.amount }} </span>
+        </div>
+        <div class="control">
+          <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <div class="column is-one-quarter">
+  <div class="column is-one-thirdr">
     <div>
       <h3 class="label neededList">Items already claimed</h3>
       <ul>
@@ -74,7 +80,7 @@
           </div>
           <div class="control">
             <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
-            <i class="fa fa-minus"></i>
+              <i class="fa fa-minus"></i>
             </button>
           </div>
         </li>
