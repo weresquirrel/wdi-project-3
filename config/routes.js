@@ -24,6 +24,7 @@ router.route('/events/search/:eventKey')
 
 router.route('/events/:id')
   .get(secureRoute, event.show)
+  .put(secureRoute, event.update)
   .delete(secureRoute, event.delete);
 
 router.route('/events/:id/join')
