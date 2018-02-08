@@ -3,44 +3,28 @@
     <figure class="image is-square">
       <img src="{{ vm.event.image }}">
     </figure>
-  </div>
-  <div class="column is-half">
+    <div class="partyDetails">
     <div class="label has-text-centered">
       <h2> {{ vm.event.eventName }} </h2>
       <p>Event Code: {{ vm.event.eventKey }} </p>
       <a class="button" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy">Edit event</a>
     </div>
 
-    <p>About: {{ vm.event.description }}</p>
-    <p>Date: {{ vm.event.date | date }}</p>
+    <p>{{ vm.event.description }}</p>
 
-    <p>Location:</p>
+    <p>{{ vm.event.date | date }}</p>
+
     <p>{{ vm.event.location.firstLine }}</p>
     <p>{{ vm.event.location.secondLine }}</p>
     <p>{{ vm.event.location.city }}</p>
     <p>{{ vm.event.location.postal_code }}</p>
+    </div>
 
-  </div>
-  <div class="column is-one-quarter">
     <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
     </div>
-  </div>
-</div>
 
-<div class="columns">
-  <div class="column is-one-quarter">
-    <div>
-      <h3 class="guestList">Guests Attending</h3>
-      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
-        I'm attending {{ vm.event.eventName }}
-      </button>
-      <ul ng-repeat="guest in vm.event.guests track by $index">
-        <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
-      </ul>
-    </div>
   </div>
-
   <div class="column">
     <h3 class="neededList">Bringit!!!</h3>
     <p ng-if="!vm.event.items.length">0 items</p>
@@ -57,8 +41,6 @@
         </div>
       </div>
     </form>
-    <br>
-
     <ul>
       <li class="field has-addons has-addons-left" ng-if="!item.bringer" ng-repeat="item in vm.event.items track by $index">
         <div class="control">
@@ -70,7 +52,6 @@
       </li>
     </ul>
   </div>
-
   <div class="column">
     <div>
       <h3 class="neededList">Items already claimed</h3>
@@ -94,6 +75,36 @@
 
       </ul>
     </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div>
+      <h3 class="guestList">Guests Attending</h3>
+      <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
+        I'm attending {{ vm.event.eventName }}
+      </button>
+      <ul ng-repeat="guest in vm.event.guests track by $index">
+        <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="column">
+
+    <br>
+
+
+  </div>
+
+  <div class="column">
+
 
   </div>
 </div>
