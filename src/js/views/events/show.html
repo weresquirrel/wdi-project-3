@@ -7,17 +7,18 @@
       <div class="label has-text-centered">
         <h2> {{ vm.event.eventName }} </h2>
         <p>Event Code: {{ vm.event.eventKey }} </p>
-        <a class="button" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy">Edit event</a>
+        <a class="button greenButton" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy">Edit event</a>
       </div>
 
       <p>{{ vm.event.description }}</p>
-
-      <p>{{ vm.event.date | date }}</p>
-
+      <br>
+      <strong><p>{{ vm.event.date | date }}</p></strong>
+      <br>
       <p>{{ vm.event.location.firstLine }}</p>
       <p>{{ vm.event.location.secondLine }}</p>
       <p>{{ vm.event.location.city }}</p>
       <p>{{ vm.event.location.postal_code }}</p>
+      <br>
     </div>
     <div class="image is-square">
       <google-map ng-if="vm.event" center="{ lat: vm.event.location.lat, lng: vm.event.location.lng }" message="{{vm.event.eventName}}"></google-map>
@@ -79,27 +80,33 @@
 
 
       <div class="column">
+        <h3>Comments</h3>
       <ul class="comments__created">
         <li ng-repeat="comment in vm.event.comments track by $index">
           <div class="field is-horizontal is-left">
             <div class="field-label is-normal">
-              <strong><a ui-sref="userShow({ id: comment.createdBy.id })">{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</a></strong>
+              <strong><a ui-sref="userShow({ id: comment.createdBy.id })">{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</a></strong> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
             </div>
+
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <div ><span class="commentField">{{ comment.content }}</span> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+                  <br>
+                  <div ><span class="commentField">{{ comment.content }}</span>
+
                   </div>
                 </div>
               </div>
             </div>
+
+          </div>
+          <div class="underline">
           </div>
         </li>
       </ul>
 
-
       <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-        <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="3"></textarea>
+        <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="2"></textarea>
         <button class= "button greenButton">Make Comment</button>
       </form>
     </div>
