@@ -3,7 +3,7 @@ const User = require('../models/user');
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('createdBy comments.createdBy hosting')
+    .populate('createdBy comments.createdBy hosting attending')
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
