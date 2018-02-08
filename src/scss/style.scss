@@ -21,6 +21,11 @@ h2 {
   font-size: 35px;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 p {
   font-family: 'Yantramanav', sans-serif;
 }
@@ -108,9 +113,9 @@ label.label {
   border-radius: 10px;
 }
 
-.neededList {
-  text-align: center;
-}
+// .neededList {
+//   text-align: center;
+// }
 
 .userUpdate {
   width: 500px;
@@ -125,4 +130,8 @@ label.label {
 	top: 0;
 	width: 100%;
   border-radius: 10px;
+}
+
+.commentField {
+  width: 500px;
 }
