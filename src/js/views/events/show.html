@@ -46,7 +46,7 @@
               <input class="input" type="text" name="itemName" value="item" ng-model="vm.newItem.itemName" placeholder="add item to the list">
             </div>
             <div class="control">
-              <button class="button is-info">
+              <button class="button greenButton">
                 <i class="fa fa-plus"></i>
               </button>
             </div>
@@ -58,7 +58,7 @@
               <span class="input neededItem">{{ item.itemName }} {{ item.amount }} </span>
             </div>
             <div class="control">
-              <button class="button is-info" ng-click="vm.assignBringer(item)">Bring It!</button>
+              <button class="button greenButton" ng-click="vm.assignBringer(item)">Bring It!</button>
             </div>
           </li>
         </ul>
@@ -73,7 +73,7 @@
                 <span class="input iClaimed">{{ item.itemName }} {{ item.amount }} - {{ item.bringer.firstName }}</span>
               </div>
               <div class="control">
-                <button class="button is-info" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
+                <button class="button greenButton" ng-if="main.userId === item.bringer.id" ng-click="vm.unassignBringer(item)">
                   <i class="fa fa-minus"></i>
                 </button>
               </div>
@@ -99,7 +99,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <div ><span class="commentField">{{ comment.content }}</span> <button class="button is-danger" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+                <div ><span class="commentField">{{ comment.content }}</span> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@
 
     <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
       <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="3"></textarea>
-      <button class= "button is-info">Make Comment</button>
+      <button class= "button greenButton">Make Comment</button>
     </form>
   </div>
 </div>

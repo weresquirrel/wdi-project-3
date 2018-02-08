@@ -1,4 +1,4 @@
-<h2>User profile</h2>
+
 <div class="columns">
   <div class="column is-one-quarter">
     <figure class="image is-square">
@@ -16,17 +16,17 @@
       </div>
     </div>
     <div>
-      <a class="button" ui-sref="editUser ({ id: vm.user.id })" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
+      <a class="button greenButton" ui-sref="editUser ({ id: vm.user.id })" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
         Edit my Profile
       </a>
-      <a class="button" ui-sref="createEvent" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
+      <a class="button greenButton" ui-sref="createEvent" ng-if="main.isAuthenticated() && main.userId === vm.user.id">
         Create a new event
       </a>
     </div>
   </div>
 </div>
-<div class= "columns myPartiesDisplay">
-  <div class="column">
+<div class= "columns is-4">
+  <div class="column is-one-quarter paleBackGround myPartiesDisplay">
     <strong>Parties I am hosting</strong>
 
     <ul ng-repeat="host in vm.user.hosting">
@@ -34,7 +34,7 @@
     </ul>
 
   </div>
-  <div class="column">
+  <div class="column is-one-quarter paleBackGround myPartiesDisplay">
     <strong>Parties I am attending</strong>
 
     <ul ng-repeat="attend in vm.user.attending">

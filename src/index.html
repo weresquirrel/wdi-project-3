@@ -19,6 +19,7 @@
 </head>
 
 <body ng-controller="MainCtrl as main" class="{{ main.pageName }}">
+  <header>
   <nav ng-hide="main.hideNav" class="navbar level is-transparent">
     <div class="container">
       <div class="navbar-brand">
@@ -57,7 +58,7 @@
                 <input class="input" type="text" placeholder="Enter six-digit event key..." ng-model="main.searchInput">
               </div>
               <div class="control">
-                <button class="button is-info">
+                <button class="button searchbutton">
                   Search
                 </button>
               </div>
@@ -67,7 +68,7 @@
       </div>
     </div>
   </nav>
-
+</header>
   <main class="container" ui-view>
   </main>
 
