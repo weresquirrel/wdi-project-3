@@ -46,7 +46,6 @@ p {
 
 .homeLogo {
   width: 370px;
-  height: 20%;
   background:rgba(255,255,255, 0.6);
   border-radius: 10px;
   text-align: center;
@@ -59,7 +58,9 @@ p {
   justify-content: space-evenly;
     display: flex;
     width: 75%;
-    margin: 0 auto;
+    margin-bottom: 3vh;
+    align-self: center;
+
 }
 
 .loginPage, .regPage {
