@@ -1,10 +1,17 @@
 body  {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   &.home {
     background-image: url('https://images.unsplash.com/photo-1479803244419-b24dfe9cbafa?ixlib=rb-0.3.5&s=d2e98a6fc665593fe0af82352b0a4401&auto=format&fit=crop&w=2250&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
   }
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 main.container {
@@ -84,7 +91,7 @@ p {
     align-self: center;
 }
 
-.loginPage, .regPage, .newEvent{
+.loginPage, .regPage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +101,18 @@ p {
   label.label {
     min-width: 150px;
   }
+}
+
+section.newEvent {
+  width: 800px;
+  min-height: 525px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  background-color: #f8f9f1;
+  border-radius: 10px;
 }
 
 .loginPage {
@@ -143,10 +162,6 @@ label.label {
   width: 230px;
   border-radius: 10px;
 }
-
-// .neededList {
-//   text-align: center;
-// }
 
 .userUpdate {
   width: 500px;
@@ -219,4 +234,15 @@ label.label {
   width: 90%;
   background-color: silver;
   margin: 5px auto;
+}
+
+footer {
+  height: 35px;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    a {
+      color: black;
+    }
 }

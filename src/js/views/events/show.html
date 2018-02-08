@@ -114,42 +114,12 @@
 </div>
 
   <div class="column is-one-quarter">
-    <h3 class="guestList">Guests Attending</h3>
+    <h3 class="guestList greenButton">Guests Attending</h3>
     <button ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
-      I'm attending {{ vm.event.eventName }}
+      click to attend
     </button>
     <ul ng-repeat="guest in vm.event.guests track by $index">
       <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
     </ul>
-  </div>
-</div>
-
-
-
-
-
-<div class="columns">
-  <div class="column is-one-quarter">
-
-  </div>
-
-  <div class="column">
-    <div>
-
-    </div>
-
-    <div class="columns">
-      <div class="column is-half">
-
-      </div>
-
-      <div class="column is-half">
-        <div>
-
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </div>

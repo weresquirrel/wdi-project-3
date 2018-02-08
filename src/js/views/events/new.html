@@ -1,16 +1,6 @@
 <section class="newEvent">
-<form ng-submit="vm.createEvent()">
-  <div class="columns">
-    <div class="column column is-one-quarter">
-      <figure class="image is-square" ng-if="vm.event.image">
-        <img src="{{ vm.event.image }}">
-      </figure>
-      <figure class="image is-square" ng-if="vm.event.image">
-        <img src="{{ vm.event.image }}">
-      </figure>
-    </div>
+<form class="paleBackGround" ng-submit="vm.createEvent()">
 
-    <div class="column paleBackGround">
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label" for="eventName">Event name</label>
@@ -121,6 +111,17 @@
           </div>
         </div>
 
+        <div class="field is-horizontal" ng-if="vm.user.profilePic">
+          <div class="field-label is-normal">
+            <label class="label">Profile Picture Preview</label>
+          </div>
+          <div class="control">
+            <figure class="image is-square" ng-if="vm.event.image">
+              <img src="{{ vm.event.image }}">
+            </figure>
+          </div>
+        </div>
+
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label hidden"></label>
@@ -129,14 +130,13 @@
             <div class="field">
               <div class="control">
                   <p>
-                    <button class="button eventInput greenButton" type="submit">Create Event</button>
+                    <button class="button eventInput is-info" type="submit">Create Event</button>
                   </p>
               </div>
             </div>
           </div>
         </div>
 
-    </div>
-  </div>
+
   </form>
 </section>
