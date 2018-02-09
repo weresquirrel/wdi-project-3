@@ -27,3 +27,9 @@
   color: white;
   font-weight: bold;
 }
+
+@media screen and (max-width: 1024px) {
+  .navbar .nav-item {
+    color: #ef493d;
+  }
+}
