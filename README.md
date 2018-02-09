@@ -137,5 +137,10 @@ How can the app be extended and improved:
 * Thanks to our partners for their ongoing support.
 * Thanks to our friends that continue to encourage and support us.
 
+<figure>
+  <a href="#"><img src="./src/assets/images/projectphotos/eventshowpre.png"></a>
+  <figcaption>An early template</figcaption>
+</figure>
+
   
 
