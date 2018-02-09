@@ -13,6 +13,7 @@
       <p>{{ vm.event.description }}</p>
       <br>
       <strong><p>{{ vm.event.date | date }}</p></strong>
+      <strong><p>{{ vm.event.date | date: 'hh:mm' }}</p></strong>
       <br>
       <p>{{ vm.event.location.firstLine }}</p>
       <p>{{ vm.event.location.secondLine }}</p>
@@ -117,9 +118,11 @@
 
   <div class="column is-one-quarter">
     <h3 class="guestList">Guests Attending</h3>
-    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy" class="button" ng-click="vm.addGuest()">
+    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy._id" class="button" ng-click="vm.addGuest()">
       Click to attend
     </button>
+    <br>
+    <a ui-sref="userShow({ id: vm.event.createdBy._id })">{{ vm.event.createdBy.firstName }} {{ vm.event.createdBy.lastName }} </a>(host)
     <ul ng-repeat="guest in vm.event.guests track by $index">
       <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
     </ul>
