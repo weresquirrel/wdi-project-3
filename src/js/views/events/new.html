@@ -29,7 +29,7 @@
 
         <div class="field is-horizontal">
           <div class="field-label is-normal">
-            <label class="label" for="date">Date</label>
+            <label class="label" for="date">Date & Time</label>
           </div>
           <div class="field-body">
             <div class="field">
@@ -96,9 +96,9 @@
           <div class="field-label is-normal">
             <label class="label">Event Picture</label>
           </div>
-          <div class="field-body">
+          <div class="control">
             <div class="file">
-              <label class="control">
+              <label class="file-label">
                 <input class="file-input" type="file" ng-model="vm.event.image" upload-image>
                 <span class="file-cta eventInput button">
                   <span class="file-icon">
@@ -111,12 +111,12 @@
           </div>
         </div>
 
-        <div class="field is-horizontal" ng-if="vm.user.profilePic">
+        <div class="field is-horizontal" ng-if="vm.event.image ">
           <div class="field-label is-normal">
-            <label class="label">Profile Picture Preview</label>
+            <label class="label">Event Picture Preview</label>
           </div>
           <div class="control">
-            <figure class="image is-square" ng-if="vm.event.image">
+            <figure class="image is-square eventInput">
               <img src="{{ vm.event.image }}">
             </figure>
           </div>

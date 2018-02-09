@@ -1,14 +1,15 @@
-
-<section>
+<section class="updateEvent">
   <form ng-submit="vm.updateEvent()">
     <div class="columns">
-      <div class="column column is-one-quarter">
+
+      <div class="column is-one-quarter">
         <figure class="image is-square" ng-if="vm.event.image">
           <img src="{{ vm.event.image }}">
         </figure>
       </div>
-      <div class="column">
 
+      <div class="column">
+        <div class="paleBackGround">
 
           <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -30,19 +31,20 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <textarea class="textarea eventInput"  name="description" id="description" ng-model="vm.event.description" rows="4"></textarea>
+                  <textarea class="textarea is-normal eventInput"  name="description" id="description" ng-model="vm.event.description" rows="4"></textarea>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="field is-horizontal">
             <div class="field-label is-normal">
-              <label class="label" for="date">Date</label>
+              <label class="label" for="date">Date and Time</label>
             </div>
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input eventInput" type="datetime-local" name="date" id="date" ng-model="vm.event.date">
+                  <input class="input is-normal eventInput" type="datetime-local" name="date" id="date" ng-model="vm.event.date">
                 </div>
               </div>
             </div>
@@ -126,15 +128,16 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                    <p>
-                      <button class="button eventInput greenButton" type="submit">Update Event</button>
-                    </p>
+                  <p>
+                    <button class="button eventInput greenButton" type="submit">Update Event</button>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
+        </div>
       </div>
     </div>
-    </form>
-  </section>
+  </form>
+</section>

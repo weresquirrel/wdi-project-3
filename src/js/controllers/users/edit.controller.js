@@ -5,7 +5,6 @@ angular
 EditUserCtrl.$inject = ['User', '$state'];
 function EditUserCtrl(User, $state) {
   const vm = this;
-  vm.user = User.get($state.params);
 
   User.get($state.params)
     .$promise
@@ -13,14 +12,14 @@ function EditUserCtrl(User, $state) {
       vm.user = user;
     });
 
-  vm.update = userUpdate;
-
   function userUpdate() {
     User
-      .update($state.params, vm.user)
+      .update({id: vm.user.id}, vm.user)
       .$promise
       .then(() => {
-        $state.go('userShow', $state.params);
+        $state.go('userShow', {id: vm.user.id});
       });
   }
+
+  vm.updateUser = userUpdate;
 }

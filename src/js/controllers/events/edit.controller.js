@@ -13,12 +13,7 @@ function EventsEditCtrl($state, Event) {
       vm.event = event;
     });
 
-
-
   function eventsUpdate(){
-
-    console.log('eventsUpdate function');
-
     Event
       .update({ id: vm.event.id }, vm.event)
       .$promise
