@@ -22,7 +22,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Event
     .findById(req.params.id)
-    .populate('comments.createdBy items.bringer guests')
+    .populate('comments.createdBy items.bringer guests createdBy')
     .exec()
     .then((event) => {
       if(!event) return res.notFound();
