@@ -118,7 +118,7 @@
 
   <div class="column is-one-quarter">
     <h3 class="guestList">Guests Attending</h3>
-    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy._id" class="button" ng-click="vm.addGuest()">
+    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy._id" ng-click="vm.addGuest()">
       Click to attend
     </button>
     <br>

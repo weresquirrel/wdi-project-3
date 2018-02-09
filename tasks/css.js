@@ -34,7 +34,7 @@ const buildCss = () => {
     .pipe(order([config.vendor.css,config.output.css]))
     .pipe(concat(config.output.css))
     .pipe(sourcemaps.init())
-    .pipe(gulpIf(global.production, minifycss()))
+    // .pipe(gulpIf(global.production, minifycss()))
     .pipe(gulpIf(global.production, rename({ suffix: '.min' })))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.dest.css))
