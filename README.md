@@ -3,8 +3,7 @@
 ## Bring It!
 
 <figure>
-  <figure>
-  <a href="#"><img src="./src/assets/images/projectphotos/finalview.png"></a>
+  <a href="#"><img src="./src/assets/images/projectphotos/eventview.png"></a>
   <figcaption>This was a group project, and third project for us, at GA:  Our group was composed of Krisztina Sztupakne Molnar, William Graham and Omar Portillo". It is an organizer of items for your guest to bring to your planed potluck, bbq, party, event...
   </figcaption>
 </figure>
@@ -29,10 +28,10 @@ Your app must:
 * A **team git repository hosted on Github**, with a link to your hosted project, and frequent commits from _every_ team member dating back to the _very beginning_ of the project
 * **A ``readme.md`` file**
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#setup)Installation and setup
+### [](https://github.com/weresquirrel/WDI-third-PROJECT#setup)Installation and setup
 
 #### Run Locally
-- Download or clone the [Github repo](https://github.com/weresquirrel/WDI-GROUP-PROJECT)
+- Download or clone the [Github repo](https://github.com/weresquirrel/WDI-third-PROJECT)
 - Run `gulp` in the terminal to compile the source code and open in the browser
 
 #### View Online
@@ -56,9 +55,9 @@ Your app must:
   <figcaption>Wireframe using Balsamiq</figcaption>
 </figure>
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#technologies-used)Technologies Used
+### [](https://github.com/weresquirrel/WDI-third-PROJECT#technologies-used)Technologies Used
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#dependencies)Dependencies
+### [](https://github.com/omrprt/wdi-third-project#dependencies)Dependencies
 - angular filePicker
 - bcrypt
 - bluebird
@@ -87,12 +86,13 @@ Your app must:
 - https://balsamiq.com/
 - https://trello.com/
 - https://fonts.google.com/
+- https://uigradients.com/
 - https://coolors.co/
 - https://logomakr.com/
 - http://fontawesome.io/
 - https://unsplash.com/
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#challenges-faced)Challenges Faced
+### [](https://github.com/weresquirrel/WDI-third-PROJECT#challenges-faced)Challenges Faced
 
 - Drying up the code
 - Matching heroku to present as our localhost is.
@@ -106,7 +106,7 @@ Your app must:
   <figcaption>Getting Errors on our Code</figcaption>
 </figure>
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#where-next)Where next?
+### [](https://github.com/weresquirrel/wdi-third-project#where-next)Where next?
 
 How can the app be extended and improved:
 
@@ -141,6 +141,3 @@ How can the app be extended and improved:
   <a href="#"><img src="./src/assets/images/projectphotos/eventshowpre.png"></a>
   <figcaption>An early template</figcaption>
 </figure>
-
-  
-
