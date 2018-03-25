@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --exit",
+    "seed": "node db/seeds.js",
     "start": "node index.js",
+    "start:server": "gulp",
     "postinstall": "bower install && gulp deploy"
   },
   "author": "Krisztina Sztupakne Molnar, William Graham, Omar Portillo",
