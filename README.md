@@ -1,143 +1,89 @@
-![ga_cog_large_red_rgb](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
+# Bring It!
+[![Heroku App Status](https://heroku-shields.herokuapp.com/stark-garden-88296)](https://stark-garden-88296.herokuapp.com/)
 
-## Bring It!
+An application that helps people organising who will bring what to a party - food, drinks, charcoal for BBQ, etc.
 
-<figure>
-  <a href="#"><img src="./src/assets/images/projectphotos/eventview.png"></a>
-  <figcaption>This was a group project, and third project for us, at GA:  Our group was composed of Krisztina Sztupakne Molnar, William Graham and Omar Portillo". It is an organizer of items for your guest to bring to your planed potluck, bbq, party, event...
-  </figcaption>
-</figure>
+It was our third project at General Assembly's WDI course as a group assignment.
 
-### Project Brief
 
-Your app must:
+** Screen shot **
 
-* **Use Mongo, Express and Node** to build an API and a **Angular front-end app** that consumes it
-* **Create an API using at least 2 related models**, one of which should be a user
-* Include **all major CRUD functions** in a **RESTful API** for at least one of those model
-* **API must include tests for the authentication and resful routes
-* **Consume your own API** by making your front-end app with **Angular** using some 3rd party dependencies such as **ui.router** and **ng-resource**
-* **Add authentication to your API** to restrict access to appropriate users
-* **Craft thoughtful user stories together**, as a team
-* **Manage team contributions and collaboration** using a standard Git flow on Github
-* Layout and style your front-end with **clean & well-formatted CSS**
-* **Deploy your application online** so it's publically accessible
-* A **working API, built by the whole team**, hosted somewhere on the internet
-* A Anguar front-end **that consumes your own API**, hosted somewhere on the internet
-* A **link to your hosted working app** in the URL section of your Github repo
-* A **team git repository hosted on Github**, with a link to your hosted project, and frequent commits from _every_ team member dating back to the _very beginning_ of the project
-* **A ``readme.md`` file**
+## Prerequisites
 
-### [](https://github.com/weresquirrel/WDI-third-PROJECT#setup)Installation and setup
+- Node.js
+- yarn
+- MongoDB
 
-#### Run Locally
-- Download or clone the [Github repo](https://github.com/weresquirrel/WDI-third-PROJECT)
-- Run `gulp` in the terminal to compile the source code and open in the browser
+## Build
 
-#### View Online
-- [View on Heroku](https://bringit204.herokuapp.com/)
-- [View on Github](https://github.com/weresquirrel/WDI-GROUP-PROJECT)
+Clone this repository:
 
-### [](https://github.com/weresquirrel/WDI-GROUP-PROJECT#approach-taken)Approach Taken
+	git clone https://github.com/weresquirrel/wdi-project-3 <project-dir>
+	cd <project-dir>
 
-1. Reviewed the project brief
-2. Brain stormed themed for an app
-3. Worked on the wireframe.
-4. Worked on the file structure.
-5. Worked on the RESTful routes.
-6. Worked on the API
-7. Added styling using scss
-8. Had UX feedback.
-9. looped again and again.
+install dependencies:
 
-<figure>
-  <a href="#"><img src="./src/assets/images/projectphotos/wireframe.png"></a>
-  <figcaption>Wireframe using Balsamiq</figcaption>
-</figure>
+	yarn install
 
-### [](https://github.com/weresquirrel/WDI-third-PROJECT#technologies-used)Technologies Used
+create mongo database schema and populate with sample data:
 
-### [](https://github.com/omrprt/wdi-third-project#dependencies)Dependencies
-- angular filePicker
-- bcrypt
-- bluebird
-- body-parser
-- express
-- express-flash
-- express-session
-- jsonwebtoken
-- method-override
-- mongoose
-- morgan
+	yarn run seed
 
-###Others
+run the application in development mode:
 
-- HTML5
+	yarn start:server
+
+or run as standalone application (by default on port 4000):
+
+	yarn start
+
+
+## Technologies used
+
+- Node.js
+- Express.js
+- MongoDB
+- AngularJS
+- angular-filepicker
+- JWT
+- Bulma
 - SCSS
-- bulma
-- Javascript (ECMAScript 6)
-- jQuery
-- Git
-- Github
-- Heroku
-- Atom
-- GIMP
-- GULP
-- https://balsamiq.com/
-- https://trello.com/
-- https://fonts.google.com/
-- https://uigradients.com/
-- https://coolors.co/
-- https://logomakr.com/
-- http://fontawesome.io/
-- https://unsplash.com/
 
-### [](https://github.com/weresquirrel/WDI-third-PROJECT#challenges-faced)Challenges Faced
+### WebAPIs
+- google maps
+- geocoding
+- filestack
 
-- Drying up the code
-- Matching heroku to present as our localhost is.
-- Coding the search functionality.
-- Implementing geocoding.
-- Coding the tests.
+### Project work
+- Balsamiq
+- Trello
 
+## Experience / Challenges Faced
 
-<figure>
-  <a href="#"><img src="./src/assets/images/projectphotos/testerrors.png"></a>
-  <figcaption>Getting Errors on our Code</figcaption>
-</figure>
+We focused on learning how to collaborate, using Git & GitHub together and was pair-programming a lot.
 
-### [](https://github.com/weresquirrel/wdi-third-project#where-next)Where next?
+It was also our first encounter with JavaScript frameworks, 3rd party Web APIs and writing proper tests.
 
-How can the app be extended and improved:
+Technical challenges:
+- AngularJS
+- Git branching/merging
+- map integration
+- testing
 
-- making some of the schema's editable:
- * currently can't update profile information
- * currenlty can't delete events or profile
+## Future plans / roadmap
 
-- add modals:
- * like when an event is made
+- Allow users to update their profile
+- Allow deletion of events
+- Add picture albums for individual events (to upload after the party)
+- Let users mark others as 'friends'
+- Show on the map markets and shops nearby to the event
 
-- have a album for the event:
-  * guest to add pictures to an event.
+## Authors
 
-- Improving the code:
-  * I am certain that there are areas of my code to be more efficient and dryer.
-  * the code could be refactored further.
+* Krisztina Sztupakne Molnar ([https://github.com/weresquirrel](@weresquirrel))
+* William Graham ([https://github.com/guillermograham](@guillermograham))
+* Omar Portillo ([https://github.com/omrprt](@omrprt))
 
-- Improve user experience:
-  * Futher improve how information is presented in order to have a better user experience.
-  * Friend people
+## Acknowledgement
 
-- Utilize more APIs:
-  * Use and API to shop for items guest are bringing
-
-## Acknowledgments
-* Would like to thank my instructors at GA, and classmates.
-* Thanks to Robert, Brian and Josh for their ux feedback.
-* Thanks to our partners for their ongoing support.
-* Thanks to our friends that continue to encourage and support us.
-
-<figure>
-  <a href="#"><img src="./src/assets/images/projectphotos/eventshowpre.png"></a>
-  <figcaption>An early template</figcaption>
-</figure>
+We used images for the example data from [https://unsplash.com/](Unsplash)
