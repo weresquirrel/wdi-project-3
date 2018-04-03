@@ -13,19 +13,20 @@
   }
   .nav-item {
     color: white;
-     &:hover {
-    color: black;
-    font-weight: bold;
+    font-family: 'Dosis', sans-serif;
     font-size: 1.2em;
-    font-family: 'Bubblegum Sans', cursive
+    font-weight: 500;
+     &:hover {
+       color: black;
      }
   }
 }
 
 .searchbutton {
+  font-family: 'Dosis', sans-serif;
   background-color: #a02d25;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1024px) {
