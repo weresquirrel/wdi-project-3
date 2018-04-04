@@ -7,7 +7,7 @@
       <div class="label has-text-centered">
         <h2> {{ vm.event.eventName }} </h2>
         <p>Event Key: {{ vm.event.eventKey }} </p>
-        <a class="button greenButton" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy">Edit event</a>
+        <a class="button greenButton" ui-sref="editEvent ({ id: vm.event.id })" ng-if="main.isAuthenticated() && main.userId === vm.event.createdBy.id">Edit event</a>
       </div>
 
       <p>{{ vm.event.description }}</p>

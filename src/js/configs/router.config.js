@@ -27,7 +27,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'UsersShowCtrl as vm'
     })
     .state('editUser', {
-      url: '/users/:id',
+      url: '/users/:id/edit',
       templateUrl: 'js/views/users/edit.html',
       controller: 'EditUserCtrl as vm'
     })
@@ -37,7 +37,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'NewEventCtrl as vm'
     })
     .state('editEvent', {
-      url: '/events/:id',
+      url: '/events/:id/edit',
       templateUrl: 'js/views/events/edit.html',
       controller: 'EventEditCtrl as vm'
     })
