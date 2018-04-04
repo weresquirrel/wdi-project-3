@@ -88,7 +88,10 @@
           <li ng-repeat="comment in vm.event.comments track by $index">
             <div class="field is-horizontal is-left">
               <div class="field-label is-normal">
-                <strong><a ui-sref="userShow({ id: comment.createdBy.id })">{{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}}</a></strong> <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+                <strong><a ui-sref="userShow({ id: comment.createdBy.id })">
+                  <!-- {{ comment.createdBy.firstName }} {{ comment.createdBy.lastName}} -->
+                  <img src="{{ comment.createdBy.profilePic }}" style="width: 48px; height: 48px; border-radius: 100px; margin-right: 8px;"/>
+                </a></strong>
               </div>
 
               <div class="field-body">
@@ -102,6 +105,8 @@
                 </div>
               </div>
 
+              <button class="button redButton" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.userId === comment.createdBy.id"><i class="fa fa-trash"></i></button>
+
             </div>
             <div class="underline">
             </div>
@@ -110,21 +115,28 @@
 
         <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
           <textarea class="textarea commentField" ng-model="vm.newComment.content" rows="2"></textarea>
-          <button class= "button greenButton">Make Comment</button>
+          <button class= "button greenButton" style="display: block; margin: auto; margin-top: 7px;">Make Comment</button>
         </form>
       </div>
     </div>
   </div>
 
   <div class="column is-one-quarter">
-    <h3 class="guestList">Guests Attending</h3>
-    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy._id" ng-click="vm.addGuest()">
+    <h3 class="guestList">Guests</h3>
+    <button class="button greenButton" ng-hide="vm.event && vm.isAttending() || main.userId === vm.event.createdBy._id" ng-click="vm.addGuest()" style="display: block; margin: auto;">
       Click to attend
     </button>
     <br>
-    <a ui-sref="userShow({ id: vm.event.createdBy._id })">{{ vm.event.createdBy.firstName }} {{ vm.event.createdBy.lastName }} </a>(host)
+    <a ui-sref="userShow({ id: vm.event.createdBy._id })" style="display: flex; align-items: center; margin-bottom: 15px;">
+      <img src="{{ vm.event.createdBy.profilePic }}" style="width: 48px; height: 48px; border-radius: 100px; margin-right: 8px;"/>
+      <p><strong>{{ vm.event.createdBy.firstName }} {{ vm.event.createdBy.lastName }} (host)</strong></p>
+    </a>
     <ul ng-repeat="guest in vm.event.guests track by $index">
-      <li><a ui-sref="userShow({ id: guest._id })">{{ guest.firstName }} {{ guest.lastName }}</a></li>
+      <li><a ui-sref="userShow({ id: guest._id })" style="display: flex; align-items: center; margin-bottom: 15px;">
+         <img src="{{ guest.profilePic }}" style="width: 48px; height: 48px; border-radius: 100px; margin-right: 8px;"/>
+         <p>{{ guest.firstName }} {{ guest.lastName }}</p>
+
+      </a></li>
     </ul>
   </div>
 </div>

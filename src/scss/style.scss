@@ -34,21 +34,31 @@ img {
   object-fit: cover;
 }
 
-h1, h2 {
+h1 {
   font-family: 'Bubblegum Sans', cursive;
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 1.8em;
+  font-weight: 600;
+  font-family: 'Dosis', sans-serif;
 }
 
 h3 {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Bubblegum Sans', cursive;
+  // !
+  text-align: center;
 }
 
 p {
   font-family: 'Yantramanav', sans-serif;
+}
+
+a {
+  color: #ef493d;
 }
 
 .myPartiesDisplay {
@@ -87,6 +97,7 @@ label.label {
 .viewTitle {
   font-size: 30px;
   font-weight: bold;
+  font-family: 'Dosis', sans-serif;
 }
 
 .underline {
