@@ -6,7 +6,7 @@ An application that helps people organising who will bring what to a party - foo
 It was our third project at General Assembly's WDI course as a group assignment.
 
 
-** Screen shot **
+![screenshot](src/assets/images/projectphotos/screenshot.png)
 
 ## Prerequisites
 
